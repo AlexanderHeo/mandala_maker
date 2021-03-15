@@ -15,6 +15,10 @@ function init() {
     document.querySelector(".clear").onclick = clearCanvas
 }
 
+function setLineWidth(width) {
+	lineWidth = width.value
+}
+
 function recordPointerLocation(e) {
     prevX = currX
     prevY = currY
