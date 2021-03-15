@@ -1,0 +1,12 @@
+body {
+	background-color: rgb(220,220,220);
+	text-align: center;
+	padding: 20px;
+}
+canvas {
+	touch-action: none;
+	background-color: rgb(255, 255, 255);
+}
+button {
+	font-size: 140%;
+}
