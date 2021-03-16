@@ -7,45 +7,87 @@ canvas {
 	touch-action: none;
 	background-color: rgb(255, 255, 255);
 }
-
 .menu {
 	margin: 0 24px;
 	position: absolute;
 	top: 20px;
 	left: 20px;
-}
-.color-picker {
 	border: 1px solid black;
 	border-radius: 1rem;
+	background-color: #fff;
+	padding: 1rem;
+}
+.picker {
+	border-bottom: 1px solid black;
+}
+.picker.color,
+.picker.line-width {
 	padding: 1.2rem;
 	margin: 1rem 0;
 }
-.color-picker-title-container {
+.color-picker-title-container,
+.line-width-picker-title-container {
 	display: flex;
 	justify-content: space-between;
 	font-size: 1.2rem;
 }
-.color-picker-title {
+.color-picker-title,
+.line-width-picker-title {
 	margin-right: 6px;
 	display: flex;
 	align-items: center;
 }
-.color-picker-open-button {
+.picker-open-button,
+.clear-button {
 	padding: 0.65rem 0.8rem;
 	border-radius: 1rem;
 	border: 1px solid black;
 }
-.color-button-container {
+
+.container.color,
+.container.width {
 	display: grid;
 	grid-gap: 6px;
 	grid-template-columns: 1fr 1fr 1fr;
 	margin: 16px 0;
+}
+.container.width {
+	display: initial;
 }
 .button {
 	width: 50px;
 	height: 40px;
 	border-radius: 1rem;
 	border: 1px solid black;
+}
+.button,
+.picker-open-button,
+.line-width {
+	cursor: pointer;
+}
+.the-line {
+	width: 100%;
+	background-color: black;
+	border-radius: 1rem;
+	margin: 24px 0;
+}
+.line-width1 {
+	height: 1px;
+}
+.line-width2 {
+	height: 2.5px;
+}
+.line-width3 {
+	height: 4px;
+}
+.line-width4 {
+	height: 5.5px;
+}
+.line-width5 {
+	height: 7px;
+}
+.line-width6 {
+	height: 8.5px;
 }
 
 .black {
@@ -93,6 +135,7 @@ canvas {
 .black {
 	background-color: black;
 }
-.hide {
+.container.color.hide,
+.container.width.hide {
 	display: none;
 }

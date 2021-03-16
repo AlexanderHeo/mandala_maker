@@ -11,14 +11,14 @@
 <body onload="init()">
 	<div class="menu">
 
-		<div class="color-picker line">
+		<div class="picker color line">
 			<div class="color-picker-title-container line">
 				<div class="color-picker-title line">Color Picker:</div>
 				<div class="color-picker-button-container line">
-					<button class="color-picker-open-button line" name="line">Pick</button>
+					<button class="picker-open-button line" name="line">Open</button>
 				</div>
 			</div>
-			<div class="color-button-container line hide">
+			<div class="container color line hide">
 				<div class="color-button">
 					<button class="button red" id="red-line"></button>
 				</div>
@@ -63,14 +63,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="color-picker background">
+		<div class="picker color background">
 			<div class="color-picker-title-container background">
 				<div class="color-picker-title background">Background Color:</div>
 				<div class="color-picker-button-container background">
-					<button class="color-picker-open-button background" name="background">Pick</button>
+					<button class="picker-open-button background" name="background">Open</button>
 				</div>
 			</div>
-			<div class="color-button-container background hide">
+			<div class="container color background hide">
 				<div class="color-button">
 					<button class="button red" id="red-background"></button>
 				</div>
@@ -115,14 +115,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="color-picker fill">
+		<div class="picker color fill">
 			<div class="color-picker-title-container fill">
 				<div class="color-picker-title fill">Fill Color:</div>
 				<div class="color-picker-button-container fill">
-					<button class="color-picker-open-button fill" name="fill">Pick</button>
+					<button class="picker-open-button fill" name="fill">Open</button>
 				</div>
 			</div>
-			<div class="color-button-container fill hide">
+			<div class="container color fill hide">
 				<div class="color-button">
 					<button class="button red" id="red"></button>
 				</div>
@@ -167,14 +167,22 @@
 				</div>
 			</div>
 		</div>
-		<div class="line-width-picker">
-			<div class="line 1" id="line1"></div>
-			<div class="line 2" id="line2"></div>
-			<div class="line 3" id="line3"></div>
-			<div class="line 4" id="line4"></div>
-			<div class="line 5" id="line5"></div>
+		<div class="picker line-width width">
+			<div class="line-width-picker-title-container">
+				<div class="line-width-picker-title">Line Width:</div>
+				<div class="line-width-picker-button-container">
+					<button class="picker-open-button width" name="width">Open</button>
+				</div>
+			</div>
+			<div class="container width hide">
+				<div class="the-line line-width1" id="line-width1"></div>
+				<div class="the-line line-width2" id="line-width2"></div>
+				<div class="the-line line-width3" id="line-width3"></div>
+				<div class="the-line line-width4" id="line-width4"></div>
+				<div class="the-line line-width5" id="line-width5"></div>
+			</div>
 		</div>
-		<button class="clear" type="button">Clear</button>
+		<button class="clear-button" id="clear" type="button">Clear</button>
 	</div>
 	<canvas id="canvas" width="700" height="700">
 		<p>your browser does not support canvas.</p>

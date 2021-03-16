@@ -12,12 +12,12 @@ function init() {
 	canvas.onpointerdown = handlePointerDown
 	canvas.onpointerup = stopDrawing
 	canvas.onpointerout = stopDrawing
-	document.querySelector(".clear").onclick = clearCanvas
+	document.querySelector("#clear").onclick = clearCanvas
 	addClickListeners()
 }
 
 const addClickListeners = () => {
-	const colorPickerButton = document.querySelectorAll('.color-picker-open-button')
+	const colorPickerButton = document.querySelectorAll('.picker-open-button')
 	colorPickerButton.forEach(x => {
 		x.addEventListener('click', handleButtonClick)
 	})
@@ -25,8 +25,8 @@ const addClickListeners = () => {
 
 const handleButtonClick = e => {
 	const name = e.target.name
-	const colorButtons = document.querySelectorAll('.color-button-container')
-	colorButtons.forEach(x => {
+	const openButtons = document.querySelectorAll('.container')
+	openButtons.forEach(x => {
 		if (x.classList.value.includes(`${name}`)) {
 			x.classList.toggle('hide')
 		} else if (!x.classList.value.includes('hide')) {
