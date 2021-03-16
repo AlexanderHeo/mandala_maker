@@ -1,6 +1,5 @@
-var canvas, context, w, h,
-	prevX = 0, currX = 0, prevY = 0, currY = 0,
-	draw = false
+let canvas, context, w, h,
+	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false
 
 function init() {
 	canvas = document.querySelector("canvas")
@@ -12,27 +11,20 @@ function init() {
 	canvas.onpointerdown = handlePointerDown
 	canvas.onpointerup = stopDrawing
 	canvas.onpointerout = stopDrawing
-	document.querySelector("#clear").onclick = clearCanvas
+
+	context.fillStyle = getBackground()
+	context.fillRect(0, 0, w, h)
+
 	addClickListeners()
 }
 
 const addClickListeners = () => {
-	const colorPickerButton = document.querySelectorAll('.picker-open-button')
-	colorPickerButton.forEach(x => {
-		x.addEventListener('click', handleButtonClick)
-	})
+	document.querySelector("#clear").onclick = clearCanvas
+	document.querySelector('#menu-close-button').onclick = toggleMenu
 }
 
-const handleButtonClick = e => {
-	const name = e.target.name
-	const openButtons = document.querySelectorAll('.container')
-	openButtons.forEach(x => {
-		if (x.classList.value.includes(`${name}`)) {
-			x.classList.toggle('hide')
-		} else if (!x.classList.value.includes('hide')) {
-			x.classList.toggle('hide')
-		}
-	})
+const toggleMenu = () => {
+	document.querySelector('.menu').classList.toggle('hide')
 }
 
 const recordPointerLocation = e => {
@@ -56,13 +48,9 @@ const handlePointerDown = e => {
 
 const drawLine = () => {
 	var a = prevX,
-	// a_ = a,
 	b = prevY,
-	// b_ = h-b,
 	c = currX,
-	// c_ = c,
 	d = currY
-	// d_ = h-d
 
 	context.strokeStyle = getColor()
 	context.lineWidth = getWidth()
@@ -72,39 +60,6 @@ const drawLine = () => {
 
 	context.moveTo(a, b)
 	context.lineTo(c, d)
-
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w-a b_ = b
-	// c_ = w-c d_ = d
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w-a b_ = h-b
-	// c_ = w-c d_ = h-d
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w/2+h/2-b b_ = w/2+h/2-a
-	// c_ = w/2+h/2-d d_ = w/2+h/2-c
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w/2+h/2-b b_ = h/2-w/2+a
-	// c_ = w/2+h/2-d d_ = h/2-w/2+c
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w/2-h/2+b b_ = w/2+h/2-a
-	// c_ = w/2-h/2+d d_ = w/2+h/2-c
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
-
-	// a_ = w/2-h/2+b b_ = h/2-w/2+a
-	// c_ = w/2-h/2+d d_ = h/2-w/2+c
-	// context.moveTo(a_, b_)
-	// context.lineTo(c_, d_)
 
 	context.stroke()
 	context.closePath()
@@ -119,9 +74,21 @@ const clearCanvas = () => {
 }
 
 const getColor = () => {
-	return document.querySelector(".color").value
+	// return document.querySelector(".color").value
+	return '#000000'
 }
 
 const getWidth = () => {
-	return document.querySelector(".width").value
+	// return document.querySelector(".width").value
+	return 1
+}
+
+const getFill = () => {
+	// return document.querySelector(".fill").value
+	return '#c0de25'
+}
+
+const getBackground = () => {
+	// return document.querySelector(".background").value
+	return '#e1e1e1'
 }
