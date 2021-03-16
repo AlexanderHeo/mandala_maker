@@ -21,6 +21,7 @@ function init() {
 const addClickListeners = () => {
 	document.querySelector("#clear").onclick = clearCanvas
 	document.querySelector('#menu-close-button').onclick = toggleMenu
+	document.querySelector('#background').onchange = handleBackgroundChange
 }
 
 const toggleMenu = () => {
@@ -74,21 +75,26 @@ const clearCanvas = () => {
 }
 
 const getColor = () => {
-	// return document.querySelector(".color").value
-	return '#000000'
+	return document.querySelector("#line").value
+	// return '#000000'
 }
 
 const getWidth = () => {
-	// return document.querySelector(".width").value
-	return 1
+	return document.querySelector("#width").value
+	// return 1
 }
 
 const getFill = () => {
-	// return document.querySelector(".fill").value
-	return '#c0de25'
+	return document.querySelector("#fill").value
+	// return '#c0de25'
 }
 
 const getBackground = () => {
-	// return document.querySelector(".background").value
-	return '#e1e1e1'
+	return document.querySelector("#background").value
+	// return '#e1e1e1'
+}
+
+const handleBackgroundChange = () => {
+	context.fillStyle = getBackground()
+	context.fillRect(0, 0, w, h)
 }

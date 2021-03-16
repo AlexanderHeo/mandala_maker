@@ -22,7 +22,7 @@ canvas {
 
 /* ********OVERLAY******** */
 .circle {
-	border: 1px dashed #b4b4b4;
+	border: 1px dashed #333333;
 	border-radius: 50%;
 	pointer-events: none;
 	position: absolute;
@@ -56,14 +56,14 @@ canvas {
 	width: 0.5px;
 	height: 750px;
 	/* background-color: black; */
-	border-right: 1px dashed #b4b4b4;
+	border-right: 1px dashed #333333;
 	pointer-events: none;
 	position: absolute;
 }
 .horizontal {
 	width: 750px;
 	height: 0.5px;
-	border-top: 1px dashed #b4b4b4;
+	border-top: 1px dashed #333333;
 }
 .forward-slash {
 	transform: rotate(45deg);
