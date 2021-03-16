@@ -1,109 +1,127 @@
 var canvas, context, w, h,
-	lineWidth = 1, prevX = 0, currX = 0, prevY = 0, currY = 0,
+	prevX = 0, currX = 0, prevY = 0, currY = 0,
 	draw = false
 
 function init() {
-    canvas = document.querySelector("canvas")
-    context = canvas.getContext("2d")
-    w = canvas.width
-    h = canvas.height
+	canvas = document.querySelector("canvas")
+	context = canvas.getContext("2d")
+	w = canvas.width
+	h = canvas.height
 
-    canvas.onpointermove = handlePointerMove
-    canvas.onpointerdown = handlePointerDown
-    canvas.onpointerup = stopDrawing
-    canvas.onpointerout = stopDrawing
-    document.querySelector(".clear").onclick = clearCanvas
+	canvas.onpointermove = handlePointerMove
+	canvas.onpointerdown = handlePointerDown
+	canvas.onpointerup = stopDrawing
+	canvas.onpointerout = stopDrawing
+	document.querySelector(".clear").onclick = clearCanvas
+	addClickListeners()
 }
 
-function setLineWidth(width) {
-	lineWidth = width.value
+const addClickListeners = () => {
+	const colorPickerButton = document.querySelectorAll('.color-picker-open-button')
+	colorPickerButton.forEach(x => {
+		x.addEventListener('click', handleButtonClick)
+	})
 }
 
-function recordPointerLocation(e) {
-    prevX = currX
-    prevY = currY
-    currX = e.clientX - canvas.offsetLeft
-    currY = e.clientY - canvas.offsetTop
+const handleButtonClick = e => {
+	const name = e.target.name
+	const colorButtons = document.querySelectorAll('.color-button-container')
+	colorButtons.forEach(x => {
+		if (x.classList.value.includes(`${name}`)) {
+			x.classList.toggle('hide')
+		} else if (!x.classList.value.includes('hide')) {
+			x.classList.toggle('hide')
+		}
+	})
 }
 
-function handlePointerMove(e) {
-    if (draw) {
-        recordPointerLocation(e)
-        drawLine()
-    }
+const recordPointerLocation = e => {
+	prevX = currX
+	prevY = currY
+	currX = e.clientX - canvas.offsetLeft
+	currY = e.clientY - canvas.offsetTop
 }
 
-function handlePointerDown(e) {
-    recordPointerLocation(e)
-    draw = true
+const handlePointerMove = e => {
+	if (draw) {
+		recordPointerLocation(e)
+		drawLine()
+	}
 }
 
-function drawLine() {
-    var a = prevX,
-				// a_ = a,
-        b = prevY,
-				// b_ = h-b,
-        c = currX,
-				// c_ = c,
-        d = currY
-				// d_ = h-d
-
-    context.strokeStyle = getColor()
-    context.lineWidth = lineWidth
-    context.lineCap = "round"
-
-    context.beginPath()
-
-    context.moveTo(a, b)
-    context.lineTo(c, d)
-
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w-a b_ = b
-    // c_ = w-c d_ = d
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w-a b_ = h-b
-    // c_ = w-c d_ = h-d
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w/2+h/2-b b_ = w/2+h/2-a
-    // c_ = w/2+h/2-d d_ = w/2+h/2-c
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w/2+h/2-b b_ = h/2-w/2+a
-    // c_ = w/2+h/2-d d_ = h/2-w/2+c
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w/2-h/2+b b_ = w/2+h/2-a
-    // c_ = w/2-h/2+d d_ = w/2+h/2-c
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    // a_ = w/2-h/2+b b_ = h/2-w/2+a
-    // c_ = w/2-h/2+d d_ = h/2-w/2+c
-    // context.moveTo(a_, b_)
-    // context.lineTo(c_, d_)
-
-    context.stroke()
-    context.closePath()
+const handlePointerDown = e => {
+	recordPointerLocation(e)
+	draw = true
 }
 
-function stopDrawing() {
-    draw = false
+const drawLine = () => {
+	var a = prevX,
+	// a_ = a,
+	b = prevY,
+	// b_ = h-b,
+	c = currX,
+	// c_ = c,
+	d = currY
+	// d_ = h-d
+
+	context.strokeStyle = getColor()
+	context.lineWidth = getWidth()
+	context.lineCap = "round"
+
+	context.beginPath()
+
+	context.moveTo(a, b)
+	context.lineTo(c, d)
+
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w-a b_ = b
+	// c_ = w-c d_ = d
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w-a b_ = h-b
+	// c_ = w-c d_ = h-d
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w/2+h/2-b b_ = w/2+h/2-a
+	// c_ = w/2+h/2-d d_ = w/2+h/2-c
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w/2+h/2-b b_ = h/2-w/2+a
+	// c_ = w/2+h/2-d d_ = h/2-w/2+c
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w/2-h/2+b b_ = w/2+h/2-a
+	// c_ = w/2-h/2+d d_ = w/2+h/2-c
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	// a_ = w/2-h/2+b b_ = h/2-w/2+a
+	// c_ = w/2-h/2+d d_ = h/2-w/2+c
+	// context.moveTo(a_, b_)
+	// context.lineTo(c_, d_)
+
+	context.stroke()
+	context.closePath()
 }
 
-function clearCanvas() {
-    if (confirm("Want to clear?")) {
-        context.clearRect(0, 0, w, h)
-    }
+const stopDrawing = () => {
+	draw = false
 }
 
-function getColor() {
-    return document.querySelector(".color").value
+const clearCanvas = () => {
+	context.clearRect(0, 0, w, h)
+}
+
+const getColor = () => {
+	return document.querySelector(".color").value
+}
+
+const getWidth = () => {
+	return document.querySelector(".width").value
 }

@@ -9,19 +9,175 @@
 	<link rel="stylesheet" href="./stylesheet/styles.css" type="text/css">
 </head>
 <body onload="init()">
-	<canvas width="700" height="700" id="canvas">
+	<div class="menu">
+
+		<div class="color-picker line">
+			<div class="color-picker-title-container line">
+				<div class="color-picker-title line">Color Picker:</div>
+				<div class="color-picker-button-container line">
+					<button class="color-picker-open-button line" name="line">Pick</button>
+				</div>
+			</div>
+			<div class="color-button-container line hide">
+				<div class="color-button">
+					<button class="button red" id="red-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button orange" id="orange-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button yellow" id="yellow-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button chartreuse" id="chartreuse-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button green" id="green-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button springgreen" id="springgreen-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button cyan" id="cyan-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button azure" id="azure-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button blue" id="blue-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button violet" id="violet-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button magenta" id="magenta-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button rose" id="rose-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button black" id="black-line"></button>
+				</div>
+				<div class="color-button">
+					<button class="button white" id="white-line"></button>
+				</div>
+			</div>
+		</div>
+		<div class="color-picker background">
+			<div class="color-picker-title-container background">
+				<div class="color-picker-title background">Background Color:</div>
+				<div class="color-picker-button-container background">
+					<button class="color-picker-open-button background" name="background">Pick</button>
+				</div>
+			</div>
+			<div class="color-button-container background hide">
+				<div class="color-button">
+					<button class="button red" id="red-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button orange" id="orange-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button yellow" id="yellow-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button chartreuse" id="chartreuse-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button green" id="green-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button springgreen" id="springgreen-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button cyan" id="cyan-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button azure" id="azure-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button blue" id="blue-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button violet" id="violet-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button magenta" id="magenta-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button rose" id="rose-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button black" id="black-background"></button>
+				</div>
+				<div class="color-button">
+					<button class="button white" id="white-background"></button>
+				</div>
+			</div>
+		</div>
+		<div class="color-picker fill">
+			<div class="color-picker-title-container fill">
+				<div class="color-picker-title fill">Fill Color:</div>
+				<div class="color-picker-button-container fill">
+					<button class="color-picker-open-button fill" name="fill">Pick</button>
+				</div>
+			</div>
+			<div class="color-button-container fill hide">
+				<div class="color-button">
+					<button class="button red" id="red"></button>
+				</div>
+				<div class="color-button">
+					<button class="button orange" id="orange-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button yellow" id="yellow-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button chartreuse" id="chartreuse-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button green" id="green-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button springgreen" id="springgreen-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button cyan" id="cyan-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button azure" id="azure-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button blue" id="blue-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button violet" id="violet-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button magenta" id="magenta-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button rose" id="rose-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button black" id="black-fill"></button>
+				</div>
+				<div class="color-button">
+					<button class="button white" id="white-fill"></button>
+				</div>
+			</div>
+		</div>
+		<div class="line-width-picker">
+			<div class="line 1" id="line1"></div>
+			<div class="line 2" id="line2"></div>
+			<div class="line 3" id="line3"></div>
+			<div class="line 4" id="line4"></div>
+			<div class="line 5" id="line5"></div>
+		</div>
+		<button class="clear" type="button">Clear</button>
+	</div>
+	<canvas id="canvas" width="700" height="700">
 		<p>your browser does not support canvas.</p>
 	</canvas>
-	<div class="menu">
-		<input type="color" class="color" />
-		<select class="lineWidth" onchange="setLineWidth(this)">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4</option>
-			<option value="5">5</option>
-		</select>
-		<button type="button" class="clear">Clear</button>
-	</div>
 </body>
 </html>
