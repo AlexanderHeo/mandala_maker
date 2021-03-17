@@ -233,8 +233,13 @@ button { width: 50px; }
 .two.sixteen7 { transform: rotate(78.75deg); }
 .two.sixteen8 { transform: rotate(-78.75deg); }
 
-.three.three1 { transform: rotate(60deg); }
-.three.three2 { transform: rotate(-60deg); }
+.three.three1half { transform: translateY(-50%); height: 340px; }
+.three.three2half { transform: translate(-155px, 90px)rotate(60deg); height: 350px; }
+.three.three3half { transform: translate(151px, 86px)rotate(-60deg); height: 350px; }
+
+.three.three1 { height: 750px; }
+.three.three2 { transform: rotate(60deg); height: 750px; }
+.three.three3 { transform: rotate(-60deg); height: 750px; }
 
 .three.six1 { transform: rotate(30deg); }
 .three.six2 { transform: rotate(-30deg); }

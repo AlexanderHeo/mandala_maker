@@ -21,8 +21,27 @@ function init() {
 	context.fillStyle = getBackground()
 	context.fillRect(0, 0, w, h)
 
-	addClickListeners()
+	addListeners()
 	handlePoints()
+}
+
+const addListeners = () => {
+	document.querySelector("#clear").onclick = clearCanvas
+	document.querySelector('#menu-close-button').onclick = toggleMenu
+	document.querySelector('#background').onchange = handleBackgroundChange
+	document.querySelector('#eraser').onchange = handleCheckboxChange
+	document.querySelector('#lines').onchange = handleCheckboxChange
+	document.querySelector('#guideToggle').onchange = handleGuideCB
+	document.querySelector('#points').onchange = handlePoints
+
+	const guide = document.querySelectorAll('.guideCB')
+	guide.forEach(x => {
+		x.addEventListener('change', handleGuideCB)
+	})
+	const guideSize = document.querySelectorAll('.guideSizeSelect')
+	guideSize.forEach(x => {
+		x.addEventListener('change', handleGuideSize)
+	})
 }
 
 const recordPointerLocation = e => {
@@ -112,25 +131,6 @@ const clearCanvas = () => {
 	context.clearRect(0, 0, w, h)
 	context.getStyle = getBackground()
 	context.fillRect(0, 0, w, h)
-}
-
-const addClickListeners = () => {
-	document.querySelector("#clear").onclick = clearCanvas
-	document.querySelector('#menu-close-button').onclick = toggleMenu
-	document.querySelector('#background').onchange = handleBackgroundChange
-	document.querySelector('#eraser').onchange = handleCheckboxChange
-	document.querySelector('#lines').onchange = handleCheckboxChange
-	document.querySelector('#guideToggle').onchange = handleGuideCB
-	document.querySelector('#points').onchange = handlePoints
-
-	const guide = document.querySelectorAll('.guideCB')
-	guide.forEach(x => {
-		x.addEventListener('change', handleGuideCB)
-	})
-	const guideSize = document.querySelectorAll('.guideSizeSelect')
-	guideSize.forEach(x => {
-		x.addEventListener('change', handleGuideSize)
-	})
 }
 
 const handleCheckboxChange = e => {
@@ -267,13 +267,13 @@ const handleGuideSize = e => {
 }
 
 const handlePoints = e => {
-
+	clearCanvas()
 	let points = "twelve"
 	if (e) points = e.target.value
 
 	const overlay = document.querySelector('.overlaycross')
 
-	if (points === 'two' || points === 'four' || points === 'eight' || points === 'sixteen') {
+	if (points === 'two' || points === 'four' || points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
 		while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -281,15 +281,18 @@ const handlePoints = e => {
 		el.classList.add('cross')
 		el.classList.add('one')
 		el.classList.add('one1')
-		const el2 = document.createElement('div')
-		el2.classList.add('cross')
-		el2.classList.add('two')
-		el2.classList.add('two1')
 		overlay.appendChild(el)
-		overlay.appendChild(el2)
 	}
 
-	if (points === 'four' || points === 'eight' || points === 'sixteen') {
+	if (points === 'four' || points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
+		const el = document.createElement('div')
+		el.classList.add('cross')
+		el.classList.add('two')
+		el.classList.add('two1')
+		overlay.appendChild(el)
+	}
+
+	if (points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
 		const el = document.createElement('div')
 		el.classList.add('cross')
 		el.classList.add('two')
@@ -302,11 +305,11 @@ const handlePoints = e => {
 		overlay.appendChild(el2)
 	}
 
-	if (points === 'eight' || points === 'sixteen') {
-		const el = document.createElement('div')
-		el.classList.add('cross')
-		el.classList.add('two')
-		el.classList.add('eight1')
+	if (points === 'sixteen' || points === 'thirtytwo') {
+		const el1 = document.createElement('div')
+		el1.classList.add('cross')
+		el1.classList.add('two')
+		el1.classList.add('eight1')
 		const el2 = document.createElement('div')
 		el2.classList.add('cross')
 		el2.classList.add('two')
@@ -319,13 +322,13 @@ const handlePoints = e => {
 		el4.classList.add('cross')
 		el4.classList.add('two')
 		el4.classList.add('eight4')
-		overlay.appendChild(el)
+		overlay.appendChild(el1)
 		overlay.appendChild(el2)
 		overlay.appendChild(el3)
 		overlay.appendChild(el4)
 	}
 
-	if (points === 'sixteen') {
+	if (points === 'thirtytwo') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('two')
@@ -374,22 +377,44 @@ const handlePoints = e => {
 		}
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
-		el1.classList.add('one')
-		el1.classList.add('one1')
+		el1.classList.add('three')
+		el1.classList.add('three1half')
 		const el2 = document.createElement('div')
 		el2.classList.add('cross')
 		el2.classList.add('three')
-		el2.classList.add('three1')
+		el2.classList.add('three2half')
 		const el3 = document.createElement('div')
 		el3.classList.add('cross')
 		el3.classList.add('three')
-		el3.classList.add('three2')
+		el3.classList.add('three3half')
 		overlay.appendChild(el1)
 		overlay.appendChild(el2)
 		overlay.appendChild(el3)
 	}
 
-	if (points === 'six' || points === 'twelve' || points === 'tf') {
+	if (points === 'six' || points === 'twelve' || points === 'tf' || points === 'fortyeight') {
+			while (overlay.hasChildNodes()) {
+			overlay.removeChild(overlay.lastChild)
+		}
+		const el1 = document.createElement('div')
+		el1.classList.add('cross')
+		el1.classList.add('three')
+		el1.classList.add('three1')
+		const el2 = document.createElement('div')
+		el2.classList.add('cross')
+		el2.classList.add('three')
+		el2.classList.add('three2')
+		const el3 = document.createElement('div')
+		el3.classList.add('cross')
+		el3.classList.add('three')
+		el3.classList.add('three3')
+		overlay.appendChild(el1)
+		overlay.appendChild(el2)
+		overlay.appendChild(el3)
+	}
+
+
+	if (points === 'twelve' || points === 'tf' || points === 'fortyeight') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -412,7 +437,7 @@ const handlePoints = e => {
 		overlay.appendChild(el4)
 	}
 
-	if (points === 'twelve' || points === 'tf') {
+	if (points === 'tf' || points === 'fortyeight') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -455,7 +480,7 @@ const handlePoints = e => {
 		overlay.appendChild(el8)
 	}
 
-	if (points === 'tf') {
+	if (points === 'fortyeight') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -536,6 +561,5 @@ const handlePoints = e => {
 		overlay.appendChild(el14)
 		overlay.appendChild(el15)
 		overlay.appendChild(el16)
-
 	}
 }
