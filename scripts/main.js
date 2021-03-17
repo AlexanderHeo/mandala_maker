@@ -1,11 +1,17 @@
 let canvas, context, w, h,
-	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, fill = false
+	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, fill = false, slices, color, center, radius, _angle, _start
 
 function init() {
 	canvas = document.querySelector("canvas")
 	context = canvas.getContext("2d")
 	w = canvas.width
 	h = canvas.height
+
+	center = { x: w / 2, y: h / 2}
+	// radius = (w / 2) - 20
+	// slices = 12
+	// _angle = 360 / slices
+	_start = 0
 
 	canvas.onpointermove = handlePointerMove
 	canvas.onpointerdown = handlePointerDown
@@ -17,6 +23,95 @@ function init() {
 
 	addClickListeners()
 	handlePoints()
+}
+
+const recordPointerLocation = e => {
+	prevX = currX
+	prevY = currY
+	currX = e.clientX - canvas.offsetLeft
+	currY = e.clientY - canvas.offsetTop
+}
+
+const handlePointerMove = e => {
+	if (draw) {
+		recordPointerLocation(e)
+		drawLine()
+	}
+}
+
+const handlePointerDown = e => {
+	recordPointerLocation(e)
+	draw = true
+}
+
+const handleFillSection = e => {
+	recordPointerLocation(e)
+	fillSection()
+}
+
+const drawLine = () => {
+	var a = prevX, b = prevY, c = currX, d = currY
+	const lineWidth = getWidth()
+	color = getColor()
+	slices = getSlices()
+	console.log(slices)
+	_angle = 360 / slices
+	if (document.querySelector('#eraser').checked) {
+		context.strokeStyle = getBackground()
+		context.lineWidth = getEraserWidth()
+	} else {
+		context.strokeStyle = color
+		context.lineWidth = lineWidth
+	}
+
+	context.lineCap = "round"
+	context.beginPath()
+	context.moveTo(a, b)
+	context.lineTo(c, d)
+	context.stroke()
+	context.closePath()
+
+	_start = 0
+	for (let i = 0; i < slices - 1; i++) {
+		_start += _angle
+		let rP = rotate({x: prevX, y: prevY}, center, _start)
+		let rC = rotate({x: currX, y: currY}, center, _start)
+		lineStroke(rP, rC, lineWidth, color)
+	}
+}
+
+const rotate = (p1, p2, a) => {
+	a = d2r(a)
+	var xr = (p1.x - p2.x) * Math.cos(a) - (p1.y - p2.y) * Math.sin(a) + p2.x
+	var yr = (p1.x - p2.x) * Math.sin(a) + (p1.y - p2.y) * Math.cos(a) + p2.y
+	return {x:xr, y:yr}
+}
+
+const d2r = deg => {
+	return deg * Math.PI/180
+}
+
+const lineStroke = (start, end, width, color) => {
+	context.lineWidth = width
+	context.strokeStyle = color
+	context.beginPath()
+	context.moveTo(start.x, start.y)
+	context.lineTo(end.x, end.y)
+	context.stroke()
+}
+
+const stopDrawing = () => {
+	draw = false
+}
+
+const fillSection = () => {
+	console.log(prevX, prevY, currX, currY)
+}
+
+const clearCanvas = () => {
+	context.clearRect(0, 0, w, h)
+	context.getStyle = getBackground()
+	context.fillRect(0, 0, w, h)
 }
 
 const addClickListeners = () => {
@@ -56,69 +151,46 @@ const toggleMenu = () => {
 	document.querySelector('.menu').classList.toggle('hide')
 }
 
-const recordPointerLocation = e => {
-	prevX = currX
-	prevY = currY
-	currX = e.clientX - canvas.offsetLeft
-	currY = e.clientY - canvas.offsetTop
-}
-
-const handlePointerMove = e => {
-	if (draw) {
-		recordPointerLocation(e)
-		drawLine()
-	}
-}
-
-const handlePointerDown = e => {
-	recordPointerLocation(e)
-	draw = true
-}
-
-const handleFillSection = e => {
-	recordPointerLocation(e)
-	fillSection()
-}
-
-const drawLine = () => {
-	var a = prevX, b = prevY, c = currX, d = currY
-
-	if (document.querySelector('#eraser').checked) {
-		context.strokeStyle = getBackground()
-		context.lineWidth = getEraserWidth()
-	} else {
-		context.strokeStyle = getColor()
-		context.lineWidth = getWidth()
-	}
-
-	context.lineCap = "round"
-	context.beginPath()
-	context.moveTo(a, b)
-	context.lineTo(c, d)
-	context.stroke()
-	context.closePath()
-}
-
-const fillSection = () => {
-	console.log(prevX, prevY, currX, currY)
-}
-
-const stopDrawing = () => {
-	draw = false
-}
-
-const clearCanvas = () => {
-	context.clearRect(0, 0, w, h)
-	context.getStyle = getBackground()
-	context.fillRect(0, 0, w, h)
-}
-
 const getColor = () => {
 	return document.querySelector("#color").value
 }
 
 const getWidth = () => {
 	return document.querySelector("#width").value
+}
+
+const getSlices = () => {
+	const word = document.querySelector('#points').value
+	let number
+	switch (word) {
+		case 'two':
+			number = 2
+			break
+		case 'three':
+			number = 3
+			break
+		case 'four':
+			number = 4
+			break
+		case 'six':
+			number = 6
+			break
+		case 'eight':
+			number = 8
+			break
+		case 'twelve':
+			number = 12
+			break
+		case 'sixteen':
+			number = 16
+			break
+		case 'tf':
+			number = 24
+			break
+		default:
+			number = 6
+	}
+	return number
 }
 
 const getEraserWidth = () => {
@@ -195,6 +267,7 @@ const handleGuideSize = e => {
 }
 
 const handlePoints = e => {
+
 	let points = "twelve"
 	if (e) points = e.target.value
 

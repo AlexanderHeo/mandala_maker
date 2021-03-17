@@ -103,7 +103,10 @@ button { width: 50px; }
 	padding: 0.5rem
 }
 
-.hide {
+.cross.hide {
+	display: none;
+}
+.guide.hide {
 	display: none;
 }
 
