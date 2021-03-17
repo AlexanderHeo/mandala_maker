@@ -27,15 +27,15 @@ canvas {
 }
 
 /* ********OVERLAY******** */
-.circle {
+.guide {
 	border-radius: 50%;
 	pointer-events: none;
 	position: absolute;
 }
-.overlay.light .circle{
+.overlay.light .guide{
 	border: 1px dashed #c0c0c0;
 }
-.overlay.dark .circle{
+.overlay.dark .guide{
 	border: 1px dashed #202020;
 }
 .overlay.light .cross {
@@ -50,30 +50,74 @@ canvas {
 .overlay.dark .cross.horizontal {
 	border-bottom: 1px dashed #202020;
 }
-.outer-circle {
+.guide1.one {
+	width: 33px;
+	height: 33px;
+}
+.guide1.two {
+	width: 66px;
+	height: 66px;
+}
+.guide1.three {
+	width: 100px;
+	height: 100px;
+}
+.guide1.four {
+	width: 133px;
+	height: 133px;
+}
+.guide1.five {
+	width: 166px;
+	height: 166px;
+}
+
+.guide2.one {
+	width: 200px;
+	height: 200px;
+}
+.guide2.two {
+	width: 245px;
+	height: 245px;
+}
+.guide2.three {
+	width: 290px;
+	height: 290px;
+}
+.guide2.four {
+	width: 335px;
+	height: 335px;
+}
+.guide2.five {
+	width: 380px;
+	height: 380px;
+}
+
+.guide3.one {
+	width: 425px;
+	height: 425px;
+}
+.guide3.two {
+	width: 470px;
+	height: 470px;
+}
+.guide3.three {
+	width: 515px;
+	height: 515px;
+}
+.guide3.four {
+	width: 560px;
+	height: 560px;
+}
+.guide3.five {
+	width: 605px;
+	height: 605px;
+}
+
+.guide4 {
 	width: 650px;
 	height: 650px;
 }
-.middle-circle {
-	width: 350px;
-	height: 350px;
-}
-.inner-circle {
-	width: 150px;
-	height: 150px;
-}
-.outer-circle1 {
-	width: 644px;
-	height: 644px;
-}
-.middle-circle1 {
-	width: 344px;
-	height: 344px;
-}
-.inner-circle1 {
-	width: 144px;
-	height: 144px;
-}
+
 
 .cross {
 	width: 0.5px;
@@ -225,4 +269,8 @@ button { width: 50px; }
 .console {
 	margin-top: 1rem;
 	padding: 0.5rem
+}
+
+.hide {
+	display: none;
 }

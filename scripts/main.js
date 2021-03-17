@@ -24,6 +24,11 @@ const addClickListeners = () => {
 	document.querySelector('#background').onchange = handleBackgroundChange
 	document.querySelector('#eraser').onchange = handleCheckboxChange
 	document.querySelector('#lines').onchange = handleCheckboxChange
+
+	const guide = document.querySelectorAll('.guideCB')
+	guide.forEach(x => {
+		x.addEventListener('change', handleGuideCB)
+	})
 }
 
 const handleCheckboxChange = e => {
@@ -133,14 +138,11 @@ const handleBackgroundChange = () => {
 	const bgc = getBackground()
 	const lineShade = lightOrDark(bgc)
 	const overlay = document.querySelector('.overlay')
-	console.log(lineShade)
-	console.log(overlay.classList)
+
 	if (lineShade === 'light') {
-		console.log('light')
 		overlay.classList.remove('dark')
 		overlay.classList.add('light')
 	} else if (lineShade === 'dark') {
-		console.log('dark')
 		overlay.classList.remove('light')
 		overlay.classList.add('dark')
 	}
@@ -166,4 +168,15 @@ const lightOrDark = color => {
 
 	if (hsp > 127.5) return 'dark'
 	else return 'light'
+}
+
+const handleGuideCB = e => {
+	const name = e.target.name
+	const el = document.querySelector(`#${name}CB`)
+	console.log(el.checked)
+	if (!el.checked) {
+		document.querySelector(`#${name}Circle`).classList.add('hide')
+	} else {
+		document.querySelector(`#${name}Circle`).classList.remove('hide')
+	}
 }
