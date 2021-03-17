@@ -24,6 +24,7 @@ const addClickListeners = () => {
 	document.querySelector('#background').onchange = handleBackgroundChange
 	document.querySelector('#eraser').onchange = handleCheckboxChange
 	document.querySelector('#lines').onchange = handleCheckboxChange
+	document.querySelector('#guideToggle').onchange = handleGuideCB
 
 	const guide = document.querySelectorAll('.guideCB')
 	guide.forEach(x => {
@@ -78,10 +79,7 @@ const handleFillSection = e => {
 }
 
 const drawLine = () => {
-	var a = prevX,
-	b = prevY,
-	c = currX,
-	d = currY
+	var a = prevX, b = prevY, c = currX, d = currY
 
 	if (document.querySelector('#eraser').checked) {
 		context.strokeStyle = getBackground()
@@ -92,12 +90,9 @@ const drawLine = () => {
 	}
 
 	context.lineCap = "round"
-
 	context.beginPath()
-
 	context.moveTo(a, b)
 	context.lineTo(c, d)
-
 	context.stroke()
 	context.closePath()
 }
@@ -174,11 +169,13 @@ const lightOrDark = color => {
 
 const handleGuideCB = e => {
 	const name = e.target.name
-	const el = document.querySelector(`#${name}CB`)
-	if (!el.checked) {
-		document.querySelector(`#${name}Circle`).classList.add('hide')
+	if (name === 'guideToggle') {
+		const cross = document.querySelectorAll('.cross')
+		cross.forEach(x => {
+			x.classList.toggle('hide')
+		})
 	} else {
-		document.querySelector(`#${name}Circle`).classList.remove('hide')
+		document.querySelector(`#${name}Circle`).classList.toggle('hide')
 	}
 }
 
