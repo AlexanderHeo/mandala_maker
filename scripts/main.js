@@ -119,7 +119,6 @@ const getWidth = () => {
 
 const getEraserWidth = () => {
 	return document.querySelector("#eraserSize").value
-	console.log(document.querySelector("#eraserSize").value)
 }
 
 const getFill = () => {
@@ -131,6 +130,40 @@ const getBackground = () => {
 }
 
 const handleBackgroundChange = () => {
-	context.fillStyle = getBackground()
+	const bgc = getBackground()
+	const lineShade = lightOrDark(bgc)
+	const overlay = document.querySelector('.overlay')
+	console.log(lineShade)
+	console.log(overlay.classList)
+	if (lineShade === 'light') {
+		console.log('light')
+		overlay.classList.remove('dark')
+		overlay.classList.add('light')
+	} else if (lineShade === 'dark') {
+		console.log('dark')
+		overlay.classList.remove('light')
+		overlay.classList.add('dark')
+	}
+
+	context.fillStyle = bgc
 	context.fillRect(0, 0, w, h)
+}
+
+const lightOrDark = color => {
+	var r, g, b, hsp
+
+	color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, '$&$&'))
+	r = color >> 16
+	g = color >> 8 & 255
+	b = color & 255
+
+	// http://alienryderflex.com/hsp.html
+	hsp = Math.sqrt(
+		0.299 * (r * r) +
+		0.587 * (g * g) +
+		0.114 * (b * b)
+	)
+
+	if (hsp > 127.5) return 'dark'
+	else return 'light'
 }
