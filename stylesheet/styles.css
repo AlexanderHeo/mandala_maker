@@ -161,6 +161,7 @@ button { width: 50px; }
 }
 .label {
 	margin: 0 0.3rem;
+	display: flex;
 }
 
 .select {
@@ -168,6 +169,14 @@ button { width: 50px; }
 }
 .button {
 	margin: 0 0.3rem;
+}
+.color-input {
+	width: 69px;
+}
+.lines-button,
+.eraser-button {
+	width: 28px;
+	height: 28px
 }
 
 .the-line::after {
