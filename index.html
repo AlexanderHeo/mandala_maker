@@ -16,20 +16,16 @@
 		</div>
 		<div class="menu-toggle">
 
-			<div class="option-container">
-				<label class="label" for="line">Line Color:</label>
-				<input class="color-input" id="line" type="color" name="line" value="#10aded">
+			<div class="option-container method">
+				<button class="button">Line</button>
+				<button class="button">Fill</button>
+				<button class="button">Erase</button>
 			</div>
-			<div class="option-container">
-				<label class="label" for="background">Background Color:</label>
-				<input class="color-input" id="background" type="color" name="background" value="#101101">
-			</div>
-			<div class="option-container fill">
-				<label class="label" for="fill">Fill Color:</label>
-				<input class="color-input" id="fill" type="color" name="fill" value="#c0de25">
-			</div>
-			<div class="option-container width">
-				<label class="label" for="width">Line Width:</label>
+
+			<div class="option-container line">
+				<input class="checkbox" id="lines" type="checkbox" name="lines" checked>
+				<label class="label" for="lines">Lines |</label>
+				<label class="label" for="width">Width:</label>
 				<select class="select" id="width" name="width">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -38,6 +34,43 @@
 					<option value="5">5</option>
 				</select>
 			</div>
+
+			<div class="option-container color">
+				<label class="label" for="color">Line Color:</label>
+				<input class="color-input" id="color" type="color" name="color" value="#10aded">
+			</div>
+			<div class="option-container fill">
+				<label class="label" for="fill">Fill Color:</label>
+				<input class="color-input" id="fill" type="color" name="fill" value="#c0de25">
+			</div>
+			<div class="option-container background">
+				<label class="label" for="background">Background Color:</label>
+				<input class="color-input" id="background" type="color" name="background" value="#101101">
+			</div>
+
+			<div class="option-container checkbox-container style">
+				<label class="label" for="radius">Radius:</label>
+				<input class="checkbox" id="radius" type="checkbox" name="radius">
+				<label class="label" for="mirror">Mirror:</label>
+				<input class="checkbox" id="mirror" type="checkbox" name="mirror">
+			</div>
+
+			<div class="option-container buttons">
+				<button class="button" id="clear">Clear</button>
+				<button class="button" id="load">Load</button>
+				<button class="button" id="save">Save</button>
+			</div>
+
+			<div class="option-container eraser">
+				<label for="eraser" class="label">Eraser:</label>
+				<select class="select" id="eraser" name="eraser">
+					<option value="small">Small</option>
+					<option value="medium">Medium</option>
+					<option value="large">Large</option>
+					<option value="xlarge">X-Large</option>
+				</select>
+			</div>
+
 			<div class="option-container points">
 				<label class="label" for="points">Points:</label>
 				<select class="select" id="points" name="points">
@@ -73,7 +106,7 @@
 				</select>
 			</div>
 
-			<div class="option-container  checkbox-container">
+			<div class="option-container  checkbox-container circle1">
 				<input class="checkbox" id="circle1" type="checkbox" name="circle1" checked value="circle1">
 				<label class="label" for="circle1">Circle 1 |</label>
 				<label class="label" for="circle1size">Size:</label>
@@ -85,7 +118,7 @@
 					<option value="5">5</option>
 				</select>
 			</div>
-			<div class="option-container  checkbox-container">
+			<div class="option-container  checkbox-container circle2">
 				<input class="checkbox" id="circle2" type="checkbox" name="circle2" checked value="circle2">
 				<label class="label" for="circle2">Circle 2 |</label>
 				<label class="label" for="circle2size">Size:</label>
@@ -97,7 +130,7 @@
 					<option value="10">10</option>
 				</select>
 			</div>
-			<div class="option-container  checkbox-container">
+			<div class="option-container  checkbox-container circle3">
 				<input class="checkbox" id="circle3" type="checkbox" name="circle3" checked value="circle3">
 				<label class="label" for="circle3">Circle 3 |</label>
 				<label class="label" for="circle3size">Size:</label>
@@ -110,16 +143,6 @@
 				</select>
 			</div>
 
-			<div class="option-container  checkbox-container">
-				<label class="label" for="radius">Radius:</label>
-				<input class="checkbox" id="radius" type="checkbox" name="radius">
-				<label class="label" for="mirror">Mirror:</label>
-				<input class="checkbox" id="mirror" type="checkbox" name="mirror">
-			</div>
-			<div class="option-container">
-				<button class="button" id="clear">Clear</button>
-				<button class="button">Save</button>
-			</div>
 		</div>
 	</div>
 

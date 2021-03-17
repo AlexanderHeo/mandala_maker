@@ -109,6 +109,9 @@ canvas {
 }
 
 /* ********MENU******** */
+input, select, button { height: 27px; }
+button { width: 50px; }
+.checkbox { width: 16px; }
 .menu {
 	width: calc(100% - 4rem);
 	position: fixed;
@@ -142,17 +145,19 @@ canvas {
 	background-color: #ffffff;
 	border: 1px solid #000000;
 	border-radius: 0.3rem;
+	margin: 0.3rem 0;
 }
 .menu-toggle {
 	font-size: 1.2rem;
 	display: grid;
-	grid-template-columns: 20% 20% 20% 20% 20%;
+	grid-template-columns: repeat(6, calc(100% / 6))
 }
 /* ********MENU TOGGLE******** */
 .option-container {
 	padding: 0.25rem 0;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 .label {
 	margin: 0 0.3rem;

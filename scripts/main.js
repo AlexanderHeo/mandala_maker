@@ -72,6 +72,8 @@ const stopDrawing = () => {
 
 const clearCanvas = () => {
 	context.clearRect(0, 0, w, h)
+	context.getStyle = getBackground()
+	context.fillRect(0, 0, w, h)
 }
 
 const getColor = () => {
