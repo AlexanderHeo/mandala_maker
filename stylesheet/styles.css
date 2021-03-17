@@ -26,6 +26,86 @@ canvas {
 	background-color: #ffffff;
 }
 
+/* ********MENU******** */
+input, select, button { height: 27px; }
+button { width: 50px; }
+.checkbox { width: 16px; }
+.menu {
+	width: calc(100% - 4rem);
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #000000;
+	background-color: #ffffff;
+	text-align: center;
+	padding: 0 2rem;
+	z-index: 10;
+}
+.menu.hide .menu-toggle {
+	padding: 0 2rem;
+	display: none;
+}
+.menu-close-button-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.4rem;
+	border-bottom: 1px solid #000000;
+	position: relative;
+	z-index: 20;
+	background-color: #ffffff;
+}
+.menu.hide .menu-close-button-container {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+.xbutton {
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	border-radius: 0.3rem;
+	margin: 0.3rem 0;
+}
+.menu-toggle {
+	font-size: 1.2rem;
+	display: grid;
+	grid-template-columns: repeat(6, calc(100% / 6))
+}
+/* ********MENU TOGGLE******** */
+.option-container {
+	padding: 0.25rem 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.label {
+	margin: 0 0.3rem;
+	display: flex;
+}
+
+.select {
+	border-radius: 0.3rem;
+}
+.button {
+	margin: 0 0.3rem;
+}
+.color-input {
+	width: 69px;
+}
+.lines-button,
+.eraser-button {
+	width: 28px;
+	height: 28px
+}
+
+.console {
+	margin-top: 1rem;
+	padding: 0.5rem
+}
+
+.hide {
+	display: none;
+}
+
 /* ********OVERLAY******** */
 .guide {
 	border-radius: 50%;
@@ -118,159 +198,61 @@ canvas {
 	height: 650px;
 }
 
-
 .cross {
 	width: 0.5px;
 	height: 750px;
 	pointer-events: none;
 	position: absolute;
 }
-.horizontal {
-	width: 750px;
-	height: 0.5px;
-}
-.forward-slash {
-	transform: rotate(45deg);
-}
-.back-slash {
-	transform: rotate(-45deg);
-}
-.forward-slash1 {
-	transform: rotate(22.5deg);
-}
-.back-slash1 {
-	transform: rotate(-22.5deg);
-}
-.forward-slash2 {
-	transform: rotate(67.5deg);
-}
-.back-slash2 {
-	transform: rotate(-67.5deg);
-}
-.forward-slash3 {
-	transform: rotate(11.25deg);
-}
-.back-slash3 {
-	transform: rotate(-11.25deg);
-}
-.forward-slash4 {
-	transform: rotate(33.75deg);
-}
-.back-slash4 {
-	transform: rotate(-33.75deg);
-}
-.forward-slash5 {
-	transform: rotate(56.25deg);
-}
-.back-slash5 {
-	transform: rotate(-56.25deg);
-}
-.forward-slash6 {
-	transform: rotate(78.75deg);
-}
-.back-slash6 {
-	transform: rotate(-78.75deg);
-}
 
-/* ********MENU******** */
-input, select, button { height: 27px; }
-button { width: 50px; }
-.checkbox { width: 16px; }
-.menu {
-	width: calc(100% - 4rem);
-	position: fixed;
-	top: 0;
-	left: 0;
-	border-bottom: 1px solid #000000;
-	background-color: #ffffff;
-	text-align: center;
-	padding: 0 2rem;
-	z-index: 10;
-}
-.menu.hide .menu-toggle {
-	padding: 0 2rem;
-	display: none;
-}
-.menu-close-button-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	font-size: 1.4rem;
-	border-bottom: 1px solid #000000;
-	position: relative;
-	z-index: 20;
-	background-color: #ffffff;
-}
-.menu.hide .menu-close-button-container {
-	border-bottom: none;
-	padding-bottom: 0;
-}
-.xbutton {
-	background-color: #ffffff;
-	border: 1px solid #000000;
-	border-radius: 0.3rem;
-	margin: 0.3rem 0;
-}
-.menu-toggle {
-	font-size: 1.2rem;
-	display: grid;
-	grid-template-columns: repeat(6, calc(100% / 6))
-}
-/* ********MENU TOGGLE******** */
-.option-container {
-	padding: 0.25rem 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.label {
-	margin: 0 0.3rem;
-	display: flex;
-}
+.two.two1 { transform: rotate(90deg); }
+.two.four1 { transform: rotate(45deg); }
+.two.four2 { transform: rotate(-45deg); }
 
-.select {
-	border-radius: 0.3rem;
-}
-.button {
-	margin: 0 0.3rem;
-}
-.color-input {
-	width: 69px;
-}
-.lines-button,
-.eraser-button {
-	width: 28px;
-	height: 28px
-}
+.two.eight1 { transform: rotate(22.5deg); }
+.two.eight2 { transform: rotate(67.5deg); }
+.two.eight3 { transform: rotate(-22.5deg); }
+.two.eight4 { transform: rotate(-67.5deg); }
 
-.the-line::after {
-	width: 20px;
-	background-color: #000000;
-}
-.line-width1::after {
-	height: 1px;
-}
-.line-width2 {
-	height: 2.5px;
-}
-.line-width3 {
-	height: 4px;
-}
-.line-width4 {
-	height: 5.5px;
-}
-.line-width5 {
-	height: 7px;
-}
-.line-width6 {
-	height: 8.5px;
-}
+.two.sixteen1 { transform: rotate(11.25deg); }
+.two.sixteen2 { transform: rotate(-11.25deg); }
+.two.sixteen3 { transform: rotate(33.75deg); }
+.two.sixteen4 { transform: rotate(-33.75deg); }
+.two.sixteen5 { transform: rotate(56.25deg); }
+.two.sixteen6 { transform: rotate(-56.25deg); }
+.two.sixteen7 { transform: rotate(78.75deg); }
+.two.sixteen8 { transform: rotate(-78.75deg); }
 
-.console {
-	margin-top: 1rem;
-	padding: 0.5rem
-}
+.three.three1 { transform: rotate(60deg); }
+.three.three2 { transform: rotate(-60deg); }
 
-.hide {
-	display: none;
-}
+.three.six1 { transform: rotate(30deg); }
+.three.six2 { transform: rotate(-30deg); }
+.three.six3 { transform: rotate(90deg); }
+.three.six4 { transform: rotate(-90deg); }
+
+.three.twelve1 { transform: rotate(15deg); }
+.three.twelve2 { transform: rotate(-15deg); }
+.three.twelve3 { transform: rotate(45deg); }
+.three.twelve4 { transform: rotate(-45deg); }
+.three.twelve5 { transform: rotate(75deg); }
+.three.twelve6 { transform: rotate(-75deg); }
+.three.twelve7 { transform: rotate(105deg); }
+.three.twelve8 { transform: rotate(-105deg); }
+
+.three.tf1 { transform: rotate(7.5deg); }
+.three.tf2 { transform: rotate(-7.5deg); }
+.three.tf3 { transform: rotate(22.5deg); }
+.three.tf4 { transform: rotate(-22.5deg); }
+.three.tf5 { transform: rotate(37.5deg); }
+.three.tf6 { transform: rotate(-37.5deg); }
+.three.tf7 { transform: rotate(52.5deg); }
+.three.tf8 { transform: rotate(-52.5deg); }
+.three.tf9 { transform: rotate(67.5deg); }
+.three.tf10 { transform: rotate(-67.5deg); }
+.three.tf11 { transform: rotate(82.5deg); }
+.three.tf12 { transform: rotate(-82.5deg); }
+.three.tf13 { transform: rotate(97.5deg); }
+.three.tf14 { transform: rotate(-97.5deg); }
+.three.tf15 { transform: rotate(112.5deg); }
+.three.tf16 { transform: rotate(-112.5deg); }
