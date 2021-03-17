@@ -184,8 +184,14 @@ const getSlices = () => {
 		case 'sixteen':
 			number = 16
 			break
-		case 'tf':
+		case 'twentyfour':
 			number = 24
+			break
+		case 'thirtytwo':
+			number = 32
+			break
+		case 'fortyeight':
+			number = 48
 			break
 		default:
 			number = 6
@@ -371,7 +377,7 @@ const handlePoints = e => {
 		overlay.appendChild(el8)
 	}
 
-	if (points === 'three' || points === 'six' || points === 'twelve' || points === 'tf') {
+	if (points === 'three' || points === 'six' || points === 'twelve' || points === 'twentyfour') {
 		while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -392,7 +398,7 @@ const handlePoints = e => {
 		overlay.appendChild(el3)
 	}
 
-	if (points === 'six' || points === 'twelve' || points === 'tf' || points === 'fortyeight') {
+	if (points === 'six' || points === 'twelve' || points === 'twentyfour' || points === 'fortyeight') {
 			while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -414,7 +420,7 @@ const handlePoints = e => {
 	}
 
 
-	if (points === 'twelve' || points === 'tf' || points === 'fortyeight') {
+	if (points === 'twelve' || points === 'twentyfour' || points === 'fortyeight') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -437,7 +443,7 @@ const handlePoints = e => {
 		overlay.appendChild(el4)
 	}
 
-	if (points === 'tf' || points === 'fortyeight') {
+	if (points === 'twentyfour' || points === 'fortyeight') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
