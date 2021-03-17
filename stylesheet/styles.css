@@ -8,7 +8,8 @@ body {
 	margin: 0;
 	padding: 0;
 }
-.overlay {
+.overlaycircle,
+.overlaycross {
 	position: absolute;
 	display: flex;
 	justify-content: center;
@@ -112,22 +113,28 @@ button { width: 50px; }
 	pointer-events: none;
 	position: absolute;
 }
-.overlay.light .guide{
+.overlaycircle.light .guide,
+.overlaycross.light .guide {
 	border: 1px dashed #c0c0c0;
 }
-.overlay.dark .guide{
+.overlaycircle.dark .guide,
+.overlaycross.dark .guide {
 	border: 1px dashed #202020;
 }
-.overlay.light .cross {
+.overlaycircle.light .cross ,
+.overlaycross.light .cross {
 	border-left: 1px dashed #c0c0c0;
 }
-.overlay.dark .cross {
+.overlaycircle.dark .cross ,
+.overlaycross.dark .cross {
 	border-left: 1px dashed #202020;
 }
-.overlay.light .cross.horizontal {
+.overlaycircle.light .cross.horizontal ,
+.overlaycross.light .cross.horizontal {
 	border-bottom: 1px dashed #c0c0c0;
 }
-.overlay.dark .cross.horizontal {
+.overlaycircle.dark .cross.horizontal ,
+.overlaycross.dark .cross.horizontal {
 	border-bottom: 1px dashed #202020;
 }
 .guide1.one {
@@ -254,5 +261,5 @@ button { width: 50px; }
 .three.tf12 { transform: rotate(-82.5deg); }
 .three.tf13 { transform: rotate(97.5deg); }
 .three.tf14 { transform: rotate(-97.5deg); }
-.three.tf15 { transform: rotate(112.5deg); }
 .three.tf16 { transform: rotate(-112.5deg); }
+.three.tf15 { transform: rotate(112.5deg); }
