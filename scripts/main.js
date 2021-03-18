@@ -1,5 +1,5 @@
 let canvas, context, w, h,
-	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, fill = false, slices, color, center, radius, _angle, _start
+	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, fill = false, slices, color, center, _angle, _start
 
 function init() {
 	canvas = document.querySelector("canvas")
@@ -8,9 +8,6 @@ function init() {
 	h = canvas.height
 
 	center = { x: w / 2, y: h / 2}
-	// radius = (w / 2) - 20
-	// slices = 12
-	// _angle = 360 / slices
 	_start = 0
 
 	canvas.onpointermove = handlePointerMove
@@ -26,8 +23,9 @@ function init() {
 }
 
 const addListeners = () => {
-	document.querySelector("#clear").onclick = clearCanvas
 	document.querySelector('#menu-close-button').onclick = toggleMenu
+	document.querySelector('#save-button').onclick = handleSave
+	document.querySelector("#clear").onclick = clearCanvas
 	document.querySelector('#background').onchange = handleBackgroundChange
 	document.querySelector('#eraser').onchange = handleCheckboxChange
 	document.querySelector('#lines').onchange = handleCheckboxChange
@@ -73,7 +71,6 @@ const drawLine = () => {
 	const lineWidth = getWidth()
 	color = getColor()
 	slices = getSlices()
-	console.log(slices)
 	_angle = 360 / slices
 	if (document.querySelector('#eraser').checked) {
 		context.strokeStyle = getBackground()
@@ -257,6 +254,17 @@ const handleGuideCB = e => {
 	} else {
 		document.querySelector(`#${name}Circle`).classList.toggle('hide')
 	}
+}
+
+const handleSave = () => {
+	console.log('handleSave')
+	let downloadLink = document.createElement('a')
+	downloadLink.setAttribute('download', 'MandalaMaker.png')
+	let canvas = document.querySelector('#canvas')
+	let dataUrl = canvas.toDataURL('image/png')
+	let url = dataUrl.replace(/^data:image\/png/,'data:application/octet-stream')
+	downloadLink.setAttribute('href', url)
+	downloadLink.click()
 }
 
 const handleGuideSize = e => {

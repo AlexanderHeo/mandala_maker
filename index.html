@@ -38,26 +38,35 @@
 				<label class="label" for="color">Line Color:</label>
 				<input class="color-input" id="color" type="color" name="color" value="#10aded">
 			</div>
-			<div class="option-container fill">
-				<label class="label" for="fill">Fill Color:</label>
-				<input class="color-input" id="fill" type="color" name="fill" value="#c0de25">
-			</div>
-			<div class="option-container background">
-				<label class="label" for="background">Background Color:</label>
-				<input class="color-input" id="background" type="color" name="background" value="#101101">
+
+			<div class="option-container  checkbox-container guide1">
+				<input class="checkbox guideCB" id="guide1CB" type="checkbox" name="guide1" checked>
+				<label class="label" for="guide1CB">Circle 1 |</label>
+				<label class="label" for="guide1size">Size:</label>
+				<select class="select guideSizeSelect" id="guide1size" name="guide1size">
+					<option value="one">1</option>
+					<option value="two">2</option>
+					<option value="three">3</option>
+					<option value="four">4</option>
+					<option value="five">5</option>
+				</select>
 			</div>
 
-			<div class="option-container checkbox-container style">
-				<label class="label" for="radius">Radius:</label>
-				<input class="checkbox" id="radius" type="checkbox" name="radius">
-				<label class="label" for="mirror">Mirror:</label>
-				<input class="checkbox" id="mirror" type="checkbox" name="mirror">
+			<div class="option-container  checkbox-container guide3">
+				<input class="checkbox guideCB" id="guide3CB" type="checkbox" name="guide3" checked>
+				<label class="label" for="guide3">Circle 3 |</label>
+				<label class="label" for="guide3size">Size:</label>
+				<select class="select guideSizeSelect" id="guide3size" name="guide3size">
+					<option value="one">11</option>
+					<option value="two">12</option>
+					<option value="three">13</option>
+					<option value="four">14</option>
+					<option value="five">15</option>
+				</select>
 			</div>
 
-			<div class="option-container method">
-				<button class="button">Line</button>
-				<button class="button">Fill</button>
-				<button class="button">Erase</button>
+			<div class="option-container save">
+				<button class="button" id="save-button">Save</button>
 			</div>
 
 			<div class="option-container eraser">
@@ -72,21 +81,12 @@
 				</select>
 			</div>
 
-
-
-			<div class="option-container  checkbox-container guide1">
-				<input class="checkbox guideCB" id="guide1CB" type="checkbox" name="guide1" checked>
-				<label class="label" for="guide1CB">Circle 1 |</label>
-				<label class="label" for="guide1size">Size:</label>
-				<select class="select guideSizeSelect" id="guide1size" name="guide1size">
-					<option value="one">1</option>
-					<option value="two">2</option>
-					<option value="three">3</option>
-					<option value="four">4</option>
-					<option value="five">5</option>
-				</select>
+			<div class="option-container background">
+				<label class="label" for="background">Background:</label>
+				<input class="color-input" id="background" type="color" name="background" value="#101101">
 			</div>
-			<div class="option-container  checkbox-container guide2">
+
+			<div class="option-container checkbox-container guide2">
 				<input class="checkbox guideCB" id="guide2CB" type="checkbox" name="guide2" checked>
 				<label class="label" for="guide2">Circle 2 |</label>
 				<label class="label" for="guide2size">Size:</label>
@@ -96,18 +96,6 @@
 					<option value="three">8</option>
 					<option value="four">9</option>
 					<option value="five">10</option>
-				</select>
-			</div>
-			<div class="option-container  checkbox-container guide3">
-				<input class="checkbox guideCB" id="guide3CB" type="checkbox" name="guide3" checked>
-				<label class="label" for="guide3">Circle 3 |</label>
-				<label class="label" for="guide3size">Size:</label>
-				<select class="select guideSizeSelect" id="guide3size" name="guide3size">
-					<option value="one">11</option>
-					<option value="two">12</option>
-					<option value="three">13</option>
-					<option value="four">14</option>
-					<option value="five">15</option>
 				</select>
 			</div>
 
@@ -150,10 +138,8 @@
 				</select>
 			</div>
 
-			<div class="option-container buttons">
+			<div class="option-container clear">
 				<button class="button" id="clear">Clear</button>
-				<!-- <button class="button" id="load">Load</button>
-				<button class="button" id="save">Save</button> -->
 			</div>
 
 		</div>
@@ -163,68 +149,12 @@
 		<p>your browser does not support canvas.</p>
 	</canvas>
 	<div class="overlaycircle light">
-		<div class="guide guide1 one" id="guide1Circle"></div>
-		<div class="guide guide2 one" id="guide2Circle"></div>
-		<div class="guide guide3 one" id="guide3Circle"></div>
-		<div class="guide guide4 one" id="guide4"></div>
+		<div class="guide guide1 five" id="guide1Circle"></div>
+		<div class="guide guide2 five" id="guide2Circle"></div>
+		<div class="guide guide3" id="guide3Circle"></div>
+		<div class="guide guide4" id="guide4Circle"></div>
 	</div>
-	<div class="overlaycross light">
-
-		<div class="cross one one1"></div>
-		<!-- <div class="cross two two1"></div>
-		<div class="cross two four1"></div>
-		<div class="cross two four2"></div>
-
-		<div class="cross two eight1"></div>
-		<div class="cross two eight2"></div>
-		<div class="cross two eight3"></div>
-		<div class="cross two eight4"></div>
-
-		<div class="cross two sixteen1"></div>
-		<div class="cross two sixteen2"></div>
-		<div class="cross two sixteen3"></div>
-		<div class="cross two sixteen4"></div>
-		<div class="cross two sixteen5"></div>
-		<div class="cross two sixteen6"></div>
-		<div class="cross two sixteen7"></div>
-		<div class="cross two sixteen8"></div>
-
-		<div class="cross three three1"></div>
-		<div class="cross three three2"></div>
-
-		<div class="cross three six1"></div>
-		<div class="cross three six2"></div>
-		<div class="cross three six3"></div>
-		<div class="cross three six4"></div>
-
-		<div class="cross three twelve1"></div>
-		<div class="cross three twelve2"></div>
-		<div class="cross three twelve3"></div>
-		<div class="cross three twelve4"></div>
-		<div class="cross three twelve5"></div>
-		<div class="cross three twelve6"></div>
-		<div class="cross three twelve7"></div>
-		<div class="cross three twelve8"></div>
-
-		<div class="cross three tf1"></div>
-		<div class="cross three tf2"></div>
-		<div class="cross three tf3"></div>
-		<div class="cross three tf4"></div>
-		<div class="cross three tf5"></div>
-		<div class="cross three tf6"></div>
-		<div class="cross three tf7"></div>
-		<div class="cross three tf8"></div>
-		<div class="cross three tf9"></div>
-		<div class="cross three tf10"></div>
-		<div class="cross three tf11"></div>
-		<div class="cross three tf12"></div>
-		<div class="cross three tf13"></div>
-		<div class="cross three tf14"></div>
-		<div class="cross three tf15"></div>
-		<div class="cross three tf16"></div>
-	</div>-->
-
-
-	</div>
+	<div class="overlaycross light"></div>
+	<div class="overlayframe"></div>
 </body>
 </html>

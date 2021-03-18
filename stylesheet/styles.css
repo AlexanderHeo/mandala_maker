@@ -69,11 +69,11 @@ button { width: 50px; }
 .menu-toggle {
 	font-size: 1rem;
 	display: grid;
-	grid-template-columns: repeat(6, calc(100% / 6))
+	grid-template-columns: repeat(4, calc(90% / 4)) 10%;
 }
 /* ********MENU TOGGLE******** */
 .option-container {
-	min-width: 203px;
+	/* min-width: 203px; */
 	padding: 0.25rem 0;
 	display: flex;
 	justify-content: center;
@@ -116,6 +116,24 @@ button { width: 50px; }
 	border-radius: 50%;
 	pointer-events: none;
 	position: absolute;
+}
+.overlayframe {
+	pointer-events: none;
+	position: absolute;
+	width: 700px;
+	height: 700px;
+	overflow: hidden;
+}
+.overlayframe::after {
+	pointer-events: none;
+	content: '';
+	position: absolute;
+	left: -475px;
+	top: -475px;
+	width: 650px;
+	height: 650px;
+	border: 500px solid black;
+	border-radius: 100%;
 }
 .overlaycircle.light .guide,
 .overlaycross.light .guide {
