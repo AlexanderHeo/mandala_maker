@@ -5,14 +5,19 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Mandala Maker | alexheo.com</title>
-	<script src="./scripts/main.js"></script>
+	<script src="./scripts/script.js"></script>
+	<script src="./scripts/background.js"></script>
+	<script src="./scripts/points.js"></script>
+	<script src="./scripts/circles.js"></script>
+	<script src="./scripts/get.js"></script>
+	<script src="./scripts/draw.js"></script>
 	<link rel="stylesheet" href="./stylesheet/styles.css" type="text/css">
 </head>
 <body onload="init()">
 	<div class="menu">
 		<div class="menu-close-button-container">
 			<span>Options Menu</span>
-			<button id="menu-close-button" class="xbutton">X</button>
+			<button id="menu-close-button" class="button x" name="menu">X</button>
 		</div>
 		<div class="menu-toggle">
 
@@ -39,11 +44,11 @@
 				<input class="color-input" id="color" type="color" name="color" value="#10aded">
 			</div>
 
-			<div class="option-container  checkbox-container guide1">
-				<input class="checkbox guideCB" id="guide1CB" type="checkbox" name="guide1" checked>
+			<div class="option-container checkbox-container guide1">
+				<input class="checkbox guideCB" type="checkbox" name="guide1" checked>
 				<label class="label" for="guide1CB">Circle 1 |</label>
 				<label class="label" for="guide1size">Size:</label>
-				<select class="select guideSizeSelect" id="guide1size" name="guide1size">
+				<select class="select guideSizeSelect" name="guide1size">
 					<option value="one">1</option>
 					<option value="two">2</option>
 					<option value="three">3</option>
@@ -52,11 +57,11 @@
 				</select>
 			</div>
 
-			<div class="option-container  checkbox-container guide3">
-				<input class="checkbox guideCB" id="guide3CB" type="checkbox" name="guide3">
+			<div class="option-container checkbox-container guide3">
+				<input class="checkbox guideCB" type="checkbox" name="guide3">
 				<label class="label" for="guide3">Circle 3 |</label>
 				<label class="label" for="guide3size">Size:</label>
-				<select class="select guideSizeSelect" id="guide3size" name="guide3size">
+				<select class="select guideSizeSelect" name="guide3size">
 					<option value="one">11</option>
 					<option value="two">12</option>
 					<option value="three">13</option>
@@ -66,14 +71,14 @@
 			</div>
 
 			<div class="option-container save">
-				<button class="button" id="save-button">Save</button>
+				<button class="button" id="save-button" name="save">Save</button>
 			</div>
 
 			<div class="option-container eraser">
 				<input class="checkbox" id="eraser" type="checkbox" name="eraser">
 				<label for="eraser" class="label"><img class="eraser-button" src="assets/eraser.png"></label>
 				<label for="eraserSize" class="label">Eraser Size:</label>
-				<select class="select" id="eraserSize" name="eraserSize">
+				<select class="select" id="eraserSize" name="eraser">
 					<option value="2" selected>Sm</option>
 					<option value="5">Md</option>
 					<option value="8">Lg</option>
@@ -87,10 +92,10 @@
 			</div>
 
 			<div class="option-container checkbox-container guide2">
-				<input class="checkbox guideCB" id="guide2CB" type="checkbox" name="guide2" checked>
+				<input class="checkbox guideCB" type="checkbox" name="guide2" checked>
 				<label class="label" for="guide2">Circle 2 |</label>
 				<label class="label" for="guide2size">Size:</label>
-				<select class="select guideSizeSelect" id="guide2size" name="guide2size">
+				<select class="select guideSizeSelect" name="guide2size">
 					<option value="one">6</option>
 					<option value="two">7</option>
 					<option value="three">8</option>
@@ -99,9 +104,9 @@
 				</select>
 			</div>
 
-			<div class="option-container points">
-				<input class="checkbox" id="guideToggle" type="checkbox" name="guideToggle" checked>
-				<label class="label" for="guideToggle">Guidelines |</label>
+			<div class="option-container checkbox-container points">
+				<input class="checkbox" type="checkbox" name="cross" checked>
+				<label class="label" for="cross">Guidelines |</label>
 				<label class="label" for="points">Points:</label>
 				<select class="select" id="points" name="points">
 					<option value="2">2</option>
@@ -139,7 +144,7 @@
 			</div>
 
 			<div class="option-container clear">
-				<button class="button" id="clear">Clear</button>
+				<button class="button" id="clear" name="clear">Clear</button>
 			</div>
 
 		</div>
