@@ -48,19 +48,19 @@
 					<option value="two">2</option>
 					<option value="three">3</option>
 					<option value="four">4</option>
-					<option value="five">5</option>
+					<option value="five" selected>5</option>
 				</select>
 			</div>
 
 			<div class="option-container  checkbox-container guide3">
-				<input class="checkbox guideCB" id="guide3CB" type="checkbox" name="guide3" checked>
+				<input class="checkbox guideCB" id="guide3CB" type="checkbox" name="guide3">
 				<label class="label" for="guide3">Circle 3 |</label>
 				<label class="label" for="guide3size">Size:</label>
 				<select class="select guideSizeSelect" id="guide3size" name="guide3size">
 					<option value="one">11</option>
 					<option value="two">12</option>
 					<option value="three">13</option>
-					<option value="four">14</option>
+					<option value="four" selected>14</option>
 					<option value="five">15</option>
 				</select>
 			</div>
@@ -95,7 +95,7 @@
 					<option value="two">7</option>
 					<option value="three">8</option>
 					<option value="four">9</option>
-					<option value="five">10</option>
+					<option value="five" selected>10</option>
 				</select>
 			</div>
 
@@ -104,21 +104,21 @@
 				<label class="label" for="guideToggle">Guidelines |</label>
 				<label class="label" for="points">Points:</label>
 				<select class="select" id="points" name="points">
-					<option value="two">2</option>
-					<option value="three" selected>3</option>
-					<option value="four">4</option>
+					<option value="2">2</option>
+					<option value="3" selected>3</option>
+					<option value="4">4</option>
 					<!-- <option value="5">5</option> -->
-					<option value="six">6</option>
+					<option value="6">6</option>
 					<!-- <option value="7">7</option> -->
-					<option value="eight">8</option>
+					<option value="8">8</option>
 					<!-- <option value="9">9</option> -->
 					<!-- <option value="10">10</option> -->
 					<!-- <option value="11">11</option> -->
-					<option value="twelve" selected>12</option>
+					<option value="12" selected>12</option>
 					<!-- <option value="13">13</option> -->
 					<!-- <option value="14">14</option> -->
 					<!-- <option value="15">15</option> -->
-					<option value="sixteen">16</option>
+					<option value="16">16</option>
 					<!-- <option value="17">17</option>
 					<option value="18">18</option>
 					<option value="19">19</option>
@@ -126,15 +126,15 @@
 					<option value="21">21</option>
 					<option value="22">22</option>
 					<option value="23">23</option> -->
-					<option value="twentyfour">24</option>
+					<option value="24">24</option>
 					<!-- <option value="25">25</option>
 					<option value="26">26</option>
 					<option value="27">27</option>
 					<option value="28">28</option>
 					<option value="29">29</option>
 					<option value="30">30</option> -->
-					<option value="thirtytwo">32</option>
-					<option value="fortyeight">48</option>
+					<option value="32">32</option>
+					<option value="48">48</option>
 				</select>
 			</div>
 
@@ -148,13 +148,13 @@
 	<canvas id="canvas" width="700" height="700">
 		<p>your browser does not support canvas.</p>
 	</canvas>
-	<div class="overlaycircle light">
+	<div class="overlay overlaycircle light">
 		<div class="guide guide1 five" id="guide1Circle"></div>
 		<div class="guide guide2 five" id="guide2Circle"></div>
-		<div class="guide guide3" id="guide3Circle"></div>
+		<div class="guide guide3 four hide" id="guide3Circle"></div>
 		<div class="guide guide4" id="guide4Circle"></div>
 	</div>
-	<div class="overlaycross light"></div>
+	<div class="overlay overlaycross light"></div>
 	<div class="overlayframe"></div>
 </body>
 </html>

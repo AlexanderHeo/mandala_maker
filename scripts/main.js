@@ -1,6 +1,7 @@
 let canvas, context, w, h,
-	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, fill = false, slices, color, center, _angle, _start
+	prevX = 0, currX = 0, prevY = 0, currY = 0,	draw = false, slices, color, center, _angle, _start
 
+// eslint-disable-next-line no-unused-vars
 function init() {
 	canvas = document.querySelector("canvas")
 	context = canvas.getContext("2d")
@@ -61,11 +62,6 @@ const handlePointerDown = e => {
 	draw = true
 }
 
-const handleFillSection = e => {
-	recordPointerLocation(e)
-	fillSection()
-}
-
 const drawLine = () => {
 	var a = prevX, b = prevY, c = currX, d = currY
 	const lineWidth = getWidth()
@@ -120,10 +116,6 @@ const stopDrawing = () => {
 	draw = false
 }
 
-const fillSection = () => {
-	console.log(prevX, prevY, currX, currY)
-}
-
 const clearCanvas = () => {
 	context.clearRect(0, 0, w, h)
 	context.getStyle = getBackground()
@@ -157,51 +149,11 @@ const getWidth = () => {
 }
 
 const getSlices = () => {
-	const word = document.querySelector('#points').value
-	let number
-	switch (word) {
-		case 'two':
-			number = 2
-			break
-		case 'three':
-			number = 3
-			break
-		case 'four':
-			number = 4
-			break
-		case 'six':
-			number = 6
-			break
-		case 'eight':
-			number = 8
-			break
-		case 'twelve':
-			number = 12
-			break
-		case 'sixteen':
-			number = 16
-			break
-		case 'twentyfour':
-			number = 24
-			break
-		case 'thirtytwo':
-			number = 32
-			break
-		case 'fortyeight':
-			number = 48
-			break
-		default:
-			number = 6
-	}
-	return number
+	return document.querySelector('#points').value
 }
 
 const getEraserWidth = () => {
 	return document.querySelector("#eraserSize").value
-}
-
-const getFill = () => {
-	return document.querySelector("#fill").value
 }
 
 const getBackground = () => {
@@ -282,12 +234,11 @@ const handleGuideSize = e => {
 
 const handlePoints = e => {
 	clearCanvas()
-	let points = "twelve"
+	let points = "12"
 	if (e) points = e.target.value
-
 	const overlay = document.querySelector('.overlaycross')
 
-	if (points === 'two' || points === 'four' || points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
+	if (points === '2' || points === '4' || points === '8' || points === '16' || points === '32') {
 		while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -298,7 +249,7 @@ const handlePoints = e => {
 		overlay.appendChild(el)
 	}
 
-	if (points === 'four' || points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
+	if (points === '4' || points === '8' || points === '16' || points === '32') {
 		const el = document.createElement('div')
 		el.classList.add('cross')
 		el.classList.add('two')
@@ -306,7 +257,7 @@ const handlePoints = e => {
 		overlay.appendChild(el)
 	}
 
-	if (points === 'eight' || points === 'sixteen' || points === 'thirtytwo') {
+	if (points === '8' || points === '16' || points === '32') {
 		const el = document.createElement('div')
 		el.classList.add('cross')
 		el.classList.add('two')
@@ -319,7 +270,7 @@ const handlePoints = e => {
 		overlay.appendChild(el2)
 	}
 
-	if (points === 'sixteen' || points === 'thirtytwo') {
+	if (points === '16' || points === '32') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('two')
@@ -342,7 +293,7 @@ const handlePoints = e => {
 		overlay.appendChild(el4)
 	}
 
-	if (points === 'thirtytwo') {
+	if (points === '32') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('two')
@@ -385,7 +336,7 @@ const handlePoints = e => {
 		overlay.appendChild(el8)
 	}
 
-	if (points === 'three' || points === 'six' || points === 'twelve' || points === 'twentyfour') {
+	if (points === '3' || points === '6' || points === '12' || points === '24') {
 		while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -406,7 +357,7 @@ const handlePoints = e => {
 		overlay.appendChild(el3)
 	}
 
-	if (points === 'six' || points === 'twelve' || points === 'twentyfour' || points === 'fortyeight') {
+	if (points === '6' || points === '12' || points === '24' || points === '48') {
 			while (overlay.hasChildNodes()) {
 			overlay.removeChild(overlay.lastChild)
 		}
@@ -428,7 +379,7 @@ const handlePoints = e => {
 	}
 
 
-	if (points === 'twelve' || points === 'twentyfour' || points === 'fortyeight') {
+	if (points === '12' || points === '24' || points === '48') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -451,7 +402,7 @@ const handlePoints = e => {
 		overlay.appendChild(el4)
 	}
 
-	if (points === 'twentyfour' || points === 'fortyeight') {
+	if (points === '24' || points === '48') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
@@ -494,7 +445,7 @@ const handlePoints = e => {
 		overlay.appendChild(el8)
 	}
 
-	if (points === 'fortyeight') {
+	if (points === '48') {
 		const el1 = document.createElement('div')
 		el1.classList.add('cross')
 		el1.classList.add('three')
