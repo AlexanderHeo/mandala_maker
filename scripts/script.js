@@ -1,6 +1,22 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-let canvas, context, w, h, prevX, prevY, curX, curY, draw, slices, color, center, _angle, _start
+let canvas,
+  context,
+  w,
+  h,
+  prevX,
+  prevY,
+  curX,
+  curY,
+  center,
+	draw,
+  tool,
+  _angle,
+  _start,
+  erase,
+  slices,
+  color,
+	curColor;
 
 const init = () => {
 	canvas = document.querySelector('canvas')
@@ -12,60 +28,84 @@ const init = () => {
 	curX = 0
 	curY = 0
 	center = { x: w / 2, y: h / 2 }
+	tool = 'line'
 	_start = 0
+	curColor = {r:0, g:0, b:0}
 
 	addListeners()
 	handlePoints()
 }
 
 const addListeners = () => {
-	canvas.onpointermove = handlePointerMove
 	canvas.onpointerdown = handlePointerDown
+	canvas.onpointermove = handlePointerMove
 	canvas.onpointerup = stopDrawing
 	canvas.onpointerout = stopDrawing
+	canvas.style.cursor = "crosshair"
 
 	const buttons = document.querySelectorAll(".button")
-	const checkboxes = document.querySelectorAll(".checkbox-container")
-	const selects = document.querySelectorAll(".select")
-
+	const overlay = document.querySelectorAll(".overlay")
 	buttons.forEach((x) => x.addEventListener("click", handleButtonClick))
-	checkboxes.forEach((x) => x.addEventListener("change", handleCheckboxClick))
-	selects.forEach((x) => x.addEventListener("change", handleSelectChange))
+	overlay.forEach((x) => x.addEventListener("change", (e) => handleOverlaySelect(e)))
 	document.querySelector("#background").onchange = handleBackgroundChange;
 }
 
 const handleButtonClick = e => {
 	const name = e.target.name
-	if (name === "menu") {
-		document.querySelector('.menu').classList.toggle('hide')
+	if (name === "new") {
+		clearCanvas()
 	} else if (name === "save") {
-		const downloadLink = document.createElement('a')
-		downloadLink.setAttribute('download', 'MandalaMaker.png')
-		const dataUrl = canvas.toDataURL('image/png')
-		const url = dataUrl.replace(/^data:image\/png/,'data:application/octet-stream')
-		downloadLink.setAttribute('href', url)
-		downloadLink.click()
-	} else if (name === "clear") {
-		context.clearRect(0, 0, w, h)
-		context.getStyle = getBackground()
-		context.fillRect(0, 0, w, h)
+		savePic()
+	} else if (name === "frame") {
+		toggleFrame()
+	} else if (name === "line" || name === "eraser" || name === "fill") {
+		handleToolButton(e)
+	} else if (name === "guide1" || name === "guide2" || name === "guide3" || name === "points") {
+		handleOverlayButton(e)
 	}
 }
-const handleCheckboxClick = e => {
+
+const handleToolButton = e => {
 	const name = e.target.name
-	if (name === 'cross') {
-		const allCross = document.querySelectorAll('.cross')
-		allCross.forEach(x => x.classList.toggle('hide'))
+	tool = name
+	const clicked = document.querySelector(`#${name}`)
+	const line = document.querySelector('#line')
+	const eraser = document.querySelector("#eraser")
+	// const fill = document.querySelector("#fill")
+	if (line.classList.value.includes("active")) line.classList.remove("active")
+	if (eraser.classList.value.includes("active")) eraser.classList.remove("active")
+	// if (fill.classList.value.includes("active")) fill.classList.remove("active")
+	clicked.classList.toggle("active")
+}
+
+const handleOverlayButton = e => {
+	const name = e.target.name
+	const el = document.querySelector(`#${name}`)
+	if (el.classList.value.includes("active")) {
+		el.classList.remove("active")
 	} else {
-		console.log(name)
-		document.querySelector(`#${name}Circle`).classList.toggle('hide')
+		el.classList.add("active")
+	}
+	if (name !== "points") {
+		const cir =	document.querySelector(`#${name}Circle`)
+		if (cir.classList.value.includes("hide")) {
+			cir.classList.remove("hide")
+		} else {
+			cir.classList.add("hide")
+		}
+	} else if (name === "points") {
+		const crosses = document.querySelectorAll(".cross")
+		crosses.forEach(x => x.classList.toggle('hide'))
 	}
 }
-const handleSelectChange = e => {
+
+const handleOverlaySelect = e => {
 	const name = e.target.name
-	if (name === "points") {
-		handlePoints(e)
-	} else {
-		handleCircles(e)
-	}
+	if (name === "pointsSize") handlePoints(e)
+	else handleCircles(e)
+}
+
+const toggleFrame = () => {
+	document.querySelector("#frame").classList.toggle("active")
+	document.querySelector(".overlayframe").classList.toggle("hide")
 }

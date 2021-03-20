@@ -1,5 +1,26 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+const handlePointerDown = e => {
+	recordPointerLocation(e)
+	if (tool === "line" || tool === "eraser") {
+		draw = true
+	} else if (tool === "fill") {
+		draw = false
+		fillSection(e)
+	}
+}
+
+const handlePointerMove = e => {
+	if (draw) {
+		recordPointerLocation(e)
+		if (tool === 'fill') {
+			fillSection()
+		} else  {
+			drawLine()
+		}
+	}
+}
+
 const recordPointerLocation = e => {
 	prevX = curX
 	prevY = curY
@@ -7,22 +28,18 @@ const recordPointerLocation = e => {
 	curY = e.clientY - canvas.offsetTop
 }
 
-const handlePointerMove = e => {
-	if (draw) {
-		recordPointerLocation(e)
-		drawLine()
-	}
-}
-
-const handlePointerDown = e => {
-	recordPointerLocation(e)
-	draw = true
-}
-
 const drawLine = () => {
+
 	context.beginPath()
-	context.strokeStyle = getColor()
-	context.lineWidth = getWidth()
+	if (tool === "eraser") {
+		context.strokeStyle = getBackground()
+		context.lineWidth = getEraserSize()
+		context.lineCap = "square"
+	} else {
+		context.strokeStyle = getColor()
+		context.lineWidth = getWidth()
+		context.lineCap = "round"
+	}
 	context.moveTo(prevX, prevY)
 	context.lineTo(curX, curY)
 	context.stroke()
@@ -51,15 +68,23 @@ const rotate = (point, center, angle) => {
 const d2r = deg => deg * Math.PI / 180
 
 const rotateStroke = (start, end) => {
-	context.lineWidth = getWidth()
-	context.strokeStyle = getColor()
 	context.beginPath()
+	if (tool === "eraser") {
+		context.strokeStyle = getBackground()
+		context.lineWidth = getEraserSize()
+	} else {
+		context.lineWidth = getWidth()
+		context.strokeStyle = getColor()
+	}
 	context.moveTo(start.x, start.y)
 	context.lineTo(end.x, end.y)
 	context.stroke()
+	context.closePath()
 }
 
-const stopDrawing = () => {draw = false}
+const stopDrawing = () => {
+	draw = false
+}
 
 const clearCanvas = () => {
 	context.fillStyle = getBackground()

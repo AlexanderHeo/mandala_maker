@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 const handlePoints = (e) => {
-  clearCanvas();
+	clearCanvas();
   let points = "12";
-  if (e) points = e.target.value;
+  if (e) points = e.target.value
   const overlay = document.querySelector(".overlaycross");
 
   if (

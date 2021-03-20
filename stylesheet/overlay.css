@@ -1,0 +1,186 @@
+/* ********OVERLAY******** */
+.cross.hide {
+	display: none;
+}
+.guide.hide {
+	display: none;
+}
+
+.guide {
+	border-radius: 50%;
+	pointer-events: none;
+	position: absolute;
+}
+.overlayframe {
+	pointer-events: none;
+	position: absolute;
+	width: 700px;
+	height: 700px;
+	overflow: hidden;
+}
+.overlayframe::after {
+	pointer-events: none;
+	content: '';
+	position: absolute;
+	left: -476px;
+	top: -476px;
+	width: 652px;
+	height: 652px;
+	border: 500px solid black;
+	border-radius: 100%;
+}
+.overlaycircle.light .guide,
+.overlaycross.light .guide {
+	border: 1px dashed #c0c0c0;
+}
+.overlaycircle.dark .guide,
+.overlaycross.dark .guide {
+	border: 1px dashed #202020;
+}
+.overlaycircle.light .cross ,
+.overlaycross.light .cross {
+	border-left: 1px dashed #c0c0c0;
+}
+.overlaycircle.dark .cross ,
+.overlaycross.dark .cross {
+	border-left: 1px dashed #202020;
+}
+.overlaycircle.light .cross.horizontal ,
+.overlaycross.light .cross.horizontal {
+	border-bottom: 1px dashed #c0c0c0;
+}
+.overlaycircle.dark .cross.horizontal ,
+.overlaycross.dark .cross.horizontal {
+	border-bottom: 1px dashed #202020;
+}
+.guide1.one {
+	width: 33px;
+	height: 33px;
+}
+.guide1.two {
+	width: 66px;
+	height: 66px;
+}
+.guide1.three {
+	width: 100px;
+	height: 100px;
+}
+.guide1.four {
+	width: 133px;
+	height: 133px;
+}
+.guide1.five {
+	width: 166px;
+	height: 166px;
+}
+
+.guide2.one {
+	width: 200px;
+	height: 200px;
+}
+.guide2.two {
+	width: 245px;
+	height: 245px;
+}
+.guide2.three {
+	width: 290px;
+	height: 290px;
+}
+.guide2.four {
+	width: 335px;
+	height: 335px;
+}
+.guide2.five {
+	width: 380px;
+	height: 380px;
+}
+
+.guide3.one {
+	width: 425px;
+	height: 425px;
+}
+.guide3.two {
+	width: 470px;
+	height: 470px;
+}
+.guide3.three {
+	width: 515px;
+	height: 515px;
+}
+.guide3.four {
+	width: 560px;
+	height: 560px;
+}
+.guide3.five {
+	width: 605px;
+	height: 605px;
+}
+
+.guide4 {
+	width: 650px;
+	height: 650px;
+}
+
+.cross {
+	width: 0.5px;
+	height: 700px;
+	pointer-events: none;
+	position: absolute;
+}
+
+.two.two1 { transform: rotate(90deg); }
+.two.four1 { transform: rotate(45deg); }
+.two.four2 { transform: rotate(-45deg); }
+
+.two.eight1 { transform: rotate(22.5deg); }
+.two.eight2 { transform: rotate(67.5deg); }
+.two.eight3 { transform: rotate(-22.5deg); }
+.two.eight4 { transform: rotate(-67.5deg); }
+
+.two.sixteen1 { transform: rotate(11.25deg); }
+.two.sixteen2 { transform: rotate(-11.25deg); }
+.two.sixteen3 { transform: rotate(33.75deg); }
+.two.sixteen4 { transform: rotate(-33.75deg); }
+.two.sixteen5 { transform: rotate(56.25deg); }
+.two.sixteen6 { transform: rotate(-56.25deg); }
+.two.sixteen7 { transform: rotate(78.75deg); }
+.two.sixteen8 { transform: rotate(-78.75deg); }
+
+.three.three1half { transform: translateY(-50%); height: 340px; }
+.three.three2half { transform: translate(-155px, 90px)rotate(60deg); height: 350px; }
+.three.three3half { transform: translate(151px, 86px)rotate(-60deg); height: 350px; }
+
+.three.three1 { height: 700px; }
+.three.three2 { transform: rotate(60deg); height: 750px; }
+.three.three3 { transform: rotate(-60deg); height: 750px; }
+
+.three.six1 { transform: rotate(30deg); }
+.three.six2 { transform: rotate(-30deg); }
+.three.six3 { transform: rotate(90deg); }
+.three.six4 { transform: rotate(-90deg); }
+
+.three.twelve1 { transform: rotate(15deg); }
+.three.twelve2 { transform: rotate(-15deg); }
+.three.twelve3 { transform: rotate(45deg); }
+.three.twelve4 { transform: rotate(-45deg); }
+.three.twelve5 { transform: rotate(75deg); }
+.three.twelve6 { transform: rotate(-75deg); }
+.three.twelve7 { transform: rotate(105deg); }
+.three.twelve8 { transform: rotate(-105deg); }
+
+.three.tf1 { transform: rotate(7.5deg); }
+.three.tf2 { transform: rotate(-7.5deg); }
+.three.tf3 { transform: rotate(22.5deg); }
+.three.tf4 { transform: rotate(-22.5deg); }
+.three.tf5 { transform: rotate(37.5deg); }
+.three.tf6 { transform: rotate(-37.5deg); }
+.three.tf7 { transform: rotate(52.5deg); }
+.three.tf8 { transform: rotate(-52.5deg); }
+.three.tf9 { transform: rotate(67.5deg); }
+.three.tf10 { transform: rotate(-67.5deg); }
+.three.tf11 { transform: rotate(82.5deg); }
+.three.tf12 { transform: rotate(-82.5deg); }
+.three.tf13 { transform: rotate(97.5deg); }
+.three.tf14 { transform: rotate(-97.5deg); }
+.three.tf16 { transform: rotate(-112.5deg); }
+.three.tf15 { transform: rotate(112.5deg); }
