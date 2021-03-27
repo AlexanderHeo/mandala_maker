@@ -32,4 +32,4 @@ Mandala as an art form first appeared in Buddhist art that were produced in Indi
 git clone https://github.com/AlexanderHeo/mandala_maker.git mandala
 cd mandala
 ```
-2. Launch index.html from your IDE
+2. Open index.html

@@ -41,9 +41,19 @@ canvas {
 	background-color: #eeeeee;
 	padding: 0 0.3rem;
 	z-index: 1;
-	transform: translateY(-60px);
+	transform: translateY(-85px);
 	transition: transform 0.3s ease;
 	opacity: 0.4;
+}
+.warning {
+	width: 100%;
+	text-align: center;
+	background-color: white;
+	color: darkred;
+	margin: 0.2rem 0;
+	padding: 0.3rem 0;
+	border: 1px solid darkred;
+	border-radius: 0.3rem;
 }
 .menu-section {
 	display: flex;
