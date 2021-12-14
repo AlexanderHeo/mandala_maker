@@ -16,174 +16,41 @@
     <script src="./scripts/save.js"></script>
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
     <link rel="stylesheet" href="./stylesheet/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./stylesheet/options.css" type="text/css" />
     <link rel="stylesheet" href="./stylesheet/overlay.css" type="text/css" />
   </head>
   <body onload="init()">
     <div class="menu">
-      <div class="title">
+      <div class="main-title">
         <h1>Mandala Maker</h1>
       </div>
 
-      <section class="menu-section" id="line">
-        <div class="menu-title">
-          <button class="line-picker-button active">
-            <h3>Line</h3>
-          </button>
-        </div>
-        <div class="color-picker">
-          <ul class="color-picker-list">
-            <li class="color red active"></li>
-            <li class="color orange"></li>
-            <li class="color yellow"></li>
-            <li class="color green"></li>
-            <li class="color blue"></li>
-            <li class="color purple"></li>
-          </ul>
-        </div>
-        <div class="line-picker">
-          <ul class="line-picker-list" id="line-picker" name="line">
-            <li class="line-size xsmall active">
-              <div class="line xsmall" />
-            </li>
-            <li class="line-size small">
-              <div class="line small" />
-            </li>
-            <li class="line-size regular">
-              <div class="line regular" />
-            </li>
-            <li class="line-size medium">
-              <div class="line medium" />
-            </li>
-            <li class="line-size large">
-              <div class="line large" />
-            </li>
-            <li class="line-size xlarge">
-              <div class="line xlarge" />
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="menu-section" id="eraser">
-        <div class="menu-title">
-          <button class="eraser-picker-button">
-            <h3>Eraser</h3>
-          </button>
-        </div>
-        <div class="eraser-picker">
-          <ul class="eraser-picker-list" id="eraser-size" name="eraser">
-            <li class="eraser-size xsmall active">
-              <div class="eraser xsmall" />
-            </li>
-            <li class="eraser-size small">
-              <div class="eraser small" />
-            </li>
-            <li class="eraser-size regular">
-              <div class="eraser regular" />
-            </li>
-            <li class="eraser-size medium">
-              <div class="eraser medium" />
-            </li>
-            <li class="eraser-size large">
-              <div class="eraser large" />
-            </li>
-            <li class="eraser-size xlarge">
-              <div class="eraser xlarge" />
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="menu-section" id="background">
-        <div class="menu-title">
-          <h3>Background</h3>
-        </div>
-        <div class="background-container">
-          <div class="color-picker">
-            <ul class="color-picker-list">
-              <li class="color black"></li>
-              <li class="color gray"></li>
-              <li class="color white"></li>
-            </ul>
-          </div>
-          <div class="warning-message">
-            <h3>* Warning *</h3>
-            <div>Changing the background color will reset the mandala</div>
-          </div>
-          <div class="frame-button-container">
-            <button class="frame-button active">
-              <div>Frame</div>
+      <section class="menu-section line">
+        <div class="menu-title picker">
+          <div class="button-container">
+            <button
+              class="button line-picker-button active"
+              id="line"
+              name="line"
+            >
+              <h3>Line</h3>
             </button>
           </div>
-        </div>
-      </section>
-
-      <section class="menu-section" id="guides">
-        <div class="menu-title">
-          <h3>Guides</h3>
-        </div>
-        <div class="guides-container">
-          <div class="guides circle">
-            <div class="guides-title">
-              <button class="circle-button active" name="circle1">
-                Circle 1
-              </button>
+          <div class="current-container">
+            <div class="current-line-color">
+              <input
+                type="color"
+                value="#ff0000"
+                name="line-color"
+                id="line-color"
+              />
             </div>
-            <div class="guides-select">
-              <select class="select" name="circle1" id="circle1">
-                <option value="1">1</option>
-              </select>
+            <div class="current-line-width">
+              <div class="current-line-box">
+                <div class="current-line line-medium"></div>
+              </div>
             </div>
           </div>
-          <div class="guides circle">
-            <div class="guides-title">
-              <button class="circle-button active" name="circle2">
-                Circle 2
-              </button>
-            </div>
-            <div class="guides-select">
-              <select class="select" name="circle2" id="circle2">
-                <option value="1">1</option>
-              </select>
-            </div>
-          </div>
-          <div class="guides circle">
-            <div class="guides-title">
-              <button class="circle-button" name="circle3">Circle 3</button>
-            </div>
-            <div class="guides-select">
-              <select class="select" name="circle3" id="circle3">
-                <option value="1">10</option>
-              </select>
-            </div>
-          </div>
-          <div class="guides points">
-            <div class="guides-title">
-              <div>Points:</div>
-            </div>
-            <div class="guides-select">
-              <select class="select" name="points" id="points">
-                <option value="1">12</option>
-              </select>
-            </div>
-          </div>
-          <div class="warning-message">
-            <h3>* Warning *</h3>
-            <div>Changing the points will reset the mandala</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="menu-section" id="buttons">
-        <div class="button-section">
-          <button class="new-button" name="new">
-            <label for="new">New</label>
-          </button>
-        </div>
-        <div class="button-section">
-          <button class="save-button" name="save">
-            <label for="save">Save</label>
-          </button>
         </div>
       </section>
     </div>

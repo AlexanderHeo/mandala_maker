@@ -1,0 +1,28 @@
+.current-line.line-xsmall {
+  border-bottom: 1px solid black;
+}
+.current-line.line-small {
+  border-bottom: 2px solid black;
+}
+.current-line.line-medium {
+  border-bottom: 3px solid black;
+}
+.current-line.line-regular {
+  border-bottom: 4px solid black;
+  transform: translateY(-4px);
+}
+.current-line.line-large {
+  border-bottom: 5px solid black;
+}
+.current-line.line-xlarge {
+  border-bottom: 6px solid black;
+}
+.current-line.line-xsmall,
+.current-line.line-small,
+.current-line.line-medium {
+  transform: translateY(-5px);
+}
+.current-line.line-large,
+.current-line.line-xlarge {
+  transform: translateY(-3px);
+}
