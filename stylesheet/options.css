@@ -26,3 +26,31 @@
 .current-line.line-xlarge {
   transform: translateY(-3px);
 }
+
+.color.red {
+  background: red;
+}
+.color.orange {
+  background: orange;
+}
+.color.yellow {
+  background: yellow;
+}
+.color.green {
+  background: green;
+}
+.color.blue {
+  background: blue;
+}
+.color.purple {
+  background: purple;
+}
+.color.black {
+  background: black;
+}
+.color.gray {
+  background: gray;
+}
+.color.white {
+  background: white;
+}

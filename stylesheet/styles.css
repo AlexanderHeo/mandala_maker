@@ -48,7 +48,8 @@ section {
 }
 .menu-title.picker,
 .current-line-color,
-.current-line-width {
+.current-line-width,
+.color-picker {
   display: flex;
 }
 .menu-section:not(:last-child) {
@@ -119,4 +120,24 @@ section {
 #line-color,
 .current-line-box {
   border-radius: 0.3em;
+}
+
+/* ***** */
+/* color */
+/* ***** */
+.color-picker {
+  margin: 0.5em 0;
+  width: 100%;
+  justify-content: space-between;
+}
+.color {
+  width: 30px;
+  height: 30px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  margin: 0 0.3em;
+}
+.color.active,
+.color:active {
+  border: 2px solid black;
 }
