@@ -20,175 +20,172 @@
   </head>
   <body onload="init()">
     <div class="menu">
-      <div class="warning">
-        <div>
-          *Warning* Changing the 'Background Color' or 'Points' will reset the
-          Mandala
+      <div class="title">
+        <h1>Mandala Maker</h1>
+      </div>
+
+      <section class="menu-section" id="line">
+        <div class="menu-title">
+          <button class="line-picker-button active">
+            <h3>Line</h3>
+          </button>
         </div>
-      </div>
-      <br />
+        <div class="color-picker">
+          <ul class="color-picker-list">
+            <li class="color red active"></li>
+            <li class="color orange"></li>
+            <li class="color yellow"></li>
+            <li class="color green"></li>
+            <li class="color blue"></li>
+            <li class="color purple"></li>
+          </ul>
+        </div>
+        <div class="line-picker">
+          <ul class="line-picker-list" id="line-picker" name="line">
+            <li class="line-size xsmall active">
+              <div class="line xsmall" />
+            </li>
+            <li class="line-size small">
+              <div class="line small" />
+            </li>
+            <li class="line-size regular">
+              <div class="line regular" />
+            </li>
+            <li class="line-size medium">
+              <div class="line medium" />
+            </li>
+            <li class="line-size large">
+              <div class="line large" />
+            </li>
+            <li class="line-size xlarge">
+              <div class="line xlarge" />
+            </li>
+          </ul>
+        </div>
+      </section>
 
-      <div class="menu-section buttons">
-        <button class="button" name="new">
-          <i class="lni lni-16 lni-add-files"></i>
-        </button>
-        <button class="button" name="save">
-          <i class="lni lni-16 lni-save"></i>
-        </button>
-        <!-- <button class="button" id="open" name="open"><i class="lni lni-16 lni-folder"></i></button> -->
-      </div>
-      <div class="separator"></div>
+      <section class="menu-section" id="eraser">
+        <div class="menu-title">
+          <button class="eraser-picker-button">
+            <h3>Eraser</h3>
+          </button>
+        </div>
+        <div class="eraser-picker">
+          <ul class="eraser-picker-list" id="eraser-size" name="eraser">
+            <li class="eraser-size xsmall active">
+              <div class="eraser xsmall" />
+            </li>
+            <li class="eraser-size small">
+              <div class="eraser small" />
+            </li>
+            <li class="eraser-size regular">
+              <div class="eraser regular" />
+            </li>
+            <li class="eraser-size medium">
+              <div class="eraser medium" />
+            </li>
+            <li class="eraser-size large">
+              <div class="eraser large" />
+            </li>
+            <li class="eraser-size xlarge">
+              <div class="eraser xlarge" />
+            </li>
+          </ul>
+        </div>
+      </section>
 
-      <div class="menu-section line">
-        <button class="button active" id="line" name="line">
-          <i class="lni lni-16 lni-pencil-alt"></i>
-        </button>
-        <input
-          class="input"
-          id="color"
-          type="color"
-          name="color"
-          value="#10aded"
-        />
-        <label class="label" for="width">Size:</label>
-        <select class="select" id="width" name="width">
-          <option value="1">1</option>
-          <option value="3">2</option>
-          <option value="5">3</option>
-          <option value="7">4</option>
-          <option value="9">5</option>
-          <option value="11">6</option>
-          <option value="13">7</option>
-          <option value="15">8</option>
-          <option value="17">9</option>
-          <option value="19">10</option>
-        </select>
-      </div>
-      <div class="separator"></div>
+      <section class="menu-section" id="background">
+        <div class="menu-title">
+          <h3>Background</h3>
+        </div>
+        <div class="background-container">
+          <div class="color-picker">
+            <ul class="color-picker-list">
+              <li class="color black"></li>
+              <li class="color gray"></li>
+              <li class="color white"></li>
+            </ul>
+          </div>
+          <div class="warning-message">
+            <h3>* Warning *</h3>
+            <div>Changing the background color will reset the mandala</div>
+          </div>
+          <div class="frame-button-container">
+            <button class="frame-button active">
+              <div>Frame</div>
+            </button>
+          </div>
+        </div>
+      </section>
 
-      <div class="menu-section eraser">
-        <button class="button" id="eraser" name="eraser">
-          <i class="lni lni-16 lni-eraser"></i>
-        </button>
-        <label class="label" for="eraserSize">Size:</label>
-        <select class="select" id="eraserSize" name="eraserSize">
-          <option value="5">1</option>
-          <option value="9">2</option>
-          <option value="13">3</option>
-          <option value="17">4</option>
-          <option value="21">5</option>
-        </select>
-      </div>
-      <div class="separator"></div>
+      <section class="menu-section" id="guides">
+        <div class="menu-title">
+          <h3>Guides</h3>
+        </div>
+        <div class="guides-container">
+          <div class="guides circle">
+            <div class="guides-title">
+              <button class="circle-button active" name="circle1">
+                Circle 1
+              </button>
+            </div>
+            <div class="guides-select">
+              <select class="select" name="circle1" id="circle1">
+                <option value="1">1</option>
+              </select>
+            </div>
+          </div>
+          <div class="guides circle">
+            <div class="guides-title">
+              <button class="circle-button active" name="circle2">
+                Circle 2
+              </button>
+            </div>
+            <div class="guides-select">
+              <select class="select" name="circle2" id="circle2">
+                <option value="1">1</option>
+              </select>
+            </div>
+          </div>
+          <div class="guides circle">
+            <div class="guides-title">
+              <button class="circle-button" name="circle3">Circle 3</button>
+            </div>
+            <div class="guides-select">
+              <select class="select" name="circle3" id="circle3">
+                <option value="1">10</option>
+              </select>
+            </div>
+          </div>
+          <div class="guides points">
+            <div class="guides-title">
+              <div>Points:</div>
+            </div>
+            <div class="guides-select">
+              <select class="select" name="points" id="points">
+                <option value="1">12</option>
+              </select>
+            </div>
+          </div>
+          <div class="warning-message">
+            <h3>* Warning *</h3>
+            <div>Changing the points will reset the mandala</div>
+          </div>
+        </div>
+      </section>
 
-      <!-- <div class="menu-section fill">
-			<button class="button" id="fill" name="fill"><i class="lni lni-16 lni-paint-bucket"></i></button>
-			<input class="input" id="fillColor" type="color" name="fill" value="#28a839">
-		</div>
-		<div class="separator"></div> -->
-
-      <div class="menu-section background">
-        <label class="label" for="background">Background:</label>
-        <input
-          class="input"
-          id="background"
-          type="color"
-          name="background"
-          value="#101101"
-        />
-      </div>
-      <div class="separator"></div>
-
-      <!-- <div class="menu-section undo">
-			<button class="button" id="" name=""><i class="lni lni-16 lni-reply"></i></button>
-			<button class="button" id="" name=""><i class="lni lni-16 lni-flip-y lni-reply"></i></button>
-		</div>
-		<div class="separator"></div> -->
-
-      <div class="menu-section">
-        <button class="button active" id="guide1" name="guide1">
-          Circle 1
-        </button>
-        <label class="label" for="guide1size">Size:</label>
-        <select class="select overlay" id="guide1size" name="guide1size">
-          <option value="one">1</option>
-          <option value="two">2</option>
-          <option value="three">3</option>
-          <option value="four">4</option>
-          <option value="five" selected>5</option>
-        </select>
-      </div>
-      <div class="separator"></div>
-
-      <div class="menu-section">
-        <button class="button active" id="guide2" name="guide2">
-          Circle 2
-        </button>
-        <label class="label" for="guide2size">Size:</label>
-        <select class="select overlay" id="guide2size" name="guide2size">
-          <option value="one">6</option>
-          <option value="two">7</option>
-          <option value="three">8</option>
-          <option value="four">9</option>
-          <option value="five" selected>10</option>
-        </select>
-      </div>
-      <div class="separator"></div>
-
-      <div class="menu-section">
-        <button class="button" id="guide3" name="guide3">Circle 3</button>
-        <label class="label" for="guide3size">Size:</label>
-        <select class="select overlay" id="guide3size" name="guide3size">
-          <option value="one">11</option>
-          <option value="two">12</option>
-          <option value="three">13</option>
-          <option value="four">14</option>
-          <option value="five" selected>15</option>
-        </select>
-      </div>
-      <div class="separator"></div>
-
-      <div class="menu-section">
-        <button class="button active" id="points" name="points">Points</button>
-        <label class="label" for="pointsSize">Size</label>
-        <select class="select overlay" id="pointsSize" name="pointsSize">
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <!-- <option value="5">5</option> -->
-          <option value="6">6</option>
-          <!-- <option value="7">7</option> -->
-          <option value="8">8</option>
-          <!-- <option value="9">9</option> -->
-          <!-- <option value="10">10</option> -->
-          <!-- <option value="11">11</option> -->
-          <option value="12" selected>12</option>
-          <!-- <option value="13">13</option> -->
-          <!-- <option value="14">14</option> -->
-          <!-- <option value="15">15</option> -->
-          <option value="16">16</option>
-          <!-- <option value="17">17</option> -->
-          <!-- <option value="18">18</option> -->
-          <!-- <option value="19">19</option> -->
-          <!-- <option value="20">20</option> -->
-          <!-- <option value="21">21</option> -->
-          <!-- <option value="22">22</option> -->
-          <!-- <option value="23">23</option> -->
-          <option value="24">24</option>
-          <!-- <option value="25">25</option> -->
-          <!-- <option value="26">26</option> -->
-          <!-- <option value="27">27</option> -->
-          <!-- <option value="28">28</option> -->
-          <!-- <option value="29">29</option> -->
-          <!-- <option value="30">30</option> -->
-          <option value="32">32</option>
-          <option value="48">48</option>
-        </select>
-      </div>
-      <div class="separator"></div>
-      <div class="menu-section">
-        <button class="button active" id="frame" name="frame">Frame</button>
-      </div>
+      <section class="menu-section" id="buttons">
+        <div class="button-section">
+          <button class="new-button" name="new">
+            <label for="new">New</label>
+          </button>
+        </div>
+        <div class="button-section">
+          <button class="save-button" name="save">
+            <label for="save">Save</label>
+          </button>
+        </div>
+      </section>
     </div>
 
     <canvas id="canvas" width="700" height="700">
