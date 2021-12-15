@@ -49,12 +49,16 @@ const addListeners = () => {
   const colorWell = document.querySelector('#current-color');
   const lineSize = document.querySelectorAll('.line-size');
   const erasers = document.querySelectorAll('.eraser-button');
+  const backgrounds = document.querySelectorAll('.background-color');
+  const frame = document.querySelector('.frame-button');
 
   buttons.forEach((el) => el.addEventListener('click', handleButtonClick));
   colors.forEach((el) => el.addEventListener('click', handleColorChange));
   colorWell.addEventListener('change', handleColorWellChange);
   lineSize.forEach((el) => el.addEventListener('click', handleLineWidth));
   erasers.forEach((el) => el.addEventListener('click', handleEraser));
+  backgrounds.forEach((el) => el.addEventListener('click', handleBackground));
+  frame.addEventListener('click', handleFrame);
 };
 
 const handleButtonClick = (e) => {
@@ -140,4 +144,23 @@ const handleEraser = (e) => {
   clickedEl.classList.add('active');
   line.classList.remove('active');
   eraser.classList.add('active');
+};
+
+const handleBackground = (e) => {
+  const target = e.currentTarget;
+  const name = target.name;
+  const activeEl = document.querySelector('.background-color.active');
+  const clickedEl = document.querySelector(`.background-color.${name}`);
+
+  activeEl.classList.remove('active');
+  clickedEl.classList.add('active');
+};
+
+const handleFrame = () => {
+  const button = document.querySelector('.frame-button');
+  if (button.classList.contains('active')) {
+    button.classList.remove('active');
+  } else {
+    button.classList.add('active');
+  }
 };
