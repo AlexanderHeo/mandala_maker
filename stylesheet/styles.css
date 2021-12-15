@@ -132,7 +132,7 @@ section:not(:first-of-type) {
 /* ***** */
 .color-picker,
 .eraser-picker {
-  margin: 0.5em 0;
+  margin: 1em 0;
   width: 100%;
   justify-content: space-between;
 }
@@ -230,7 +230,8 @@ section:not(:first-of-type) {
   color: white;
   border-radius: 0.3em;
 }
-.background-container .color-picker:hover + .warning-message {
+.background-container .color-picker:hover + .warning-message,
+.guides-container .guides.points:hover + .warning-message {
   display: block;
 }
 .warning-message {
@@ -243,4 +244,47 @@ section:not(:first-of-type) {
   text-align: center;
   z-index: 2;
   line-height: 1.5;
+}
+
+/* ****** */
+/* guides */
+/* ****** */
+.guides-container {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  margin-top: 1em;
+}
+.guides {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 0.5em;
+}
+.guides-button,
+.guides-select {
+  text-align: center;
+}
+.guides-button {
+  width: 80px;
+}
+.guides-button button {
+  width: 100%;
+  padding: 0.3em 0;
+  border-radius: 0.3em;
+}
+.guides-select select {
+  width: 40px;
+  padding: 0.2em 0;
+}
+.circle-button:active,
+.circle-button.active,
+.points-button:active,
+.points-button.active {
+  background: darkslategray;
+  color: white;
+}
+.guides-container .warning-message {
+  bottom: 90px;
 }
