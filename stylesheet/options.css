@@ -44,3 +44,30 @@
 .color.white {
   background: white;
 }
+.eraser {
+  background: black;
+}
+.eraser.xsmall {
+  width: 4px;
+  height: 4px;
+}
+.eraser.small {
+  width: 8px;
+  height: 8px;
+}
+.eraser.medium {
+  width: 12px;
+  height: 12px;
+}
+.eraser.regular {
+  width: 16px;
+  height: 16px;
+}
+.eraser.large {
+  width: 20px;
+  height: 20px;
+}
+.eraser.xlarge {
+  width: 24px;
+  height: 24px;
+}

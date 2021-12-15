@@ -41,7 +41,10 @@ select {
 }
 section {
   width: 100%;
-  margin: 1rem;
+  margin: 1em;
+}
+section:not(:first-of-type) {
+  margin-top: 0;
 }
 .hide {
   display: none;
@@ -55,6 +58,9 @@ section {
 }
 .menu-section:not(:last-child) {
   border-bottom: 1px solid black;
+}
+#current-color:hover {
+  cursor: pointer;
 }
 
 /* **** */
@@ -94,7 +100,6 @@ section {
 .menu-title button {
   width: 100%;
   padding: 0.3em 0.5em;
-  margin: 0 0.3em;
   border-radius: 0.3em;
 }
 
@@ -125,7 +130,8 @@ section {
 /* ***** */
 /* color */
 /* ***** */
-.color-picker {
+.color-picker,
+.eraser-picker {
   margin: 0.5em 0;
   width: 100%;
   justify-content: space-between;
@@ -171,4 +177,26 @@ section {
 }
 .line {
   width: 100%;
+}
+
+/* ****** */
+/* eraser */
+/* ****** */
+.eraser-picker {
+  display: flex;
+  justify-content: space-between;
+}
+.eraser-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: 2px solid transparent;
+}
+.eraser-button:active,
+.eraser-button.active {
+  border: 2px solid black;
 }
