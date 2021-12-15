@@ -50,13 +50,24 @@ const addListeners = () => {
   const lineSize = document.querySelectorAll('.line-size');
   const erasers = document.querySelectorAll('.eraser-button');
   const backgrounds = document.querySelectorAll('.background-color');
+  const overlays = document.querySelectorAll('.overlay');
 
   buttons.forEach((el) => el.addEventListener('click', handleButtonClick));
   colors.forEach((el) => el.addEventListener('click', handleColorChange));
   colorWell.addEventListener('change', handleColorWellChange);
   lineSize.forEach((el) => el.addEventListener('click', handleLineWidth));
   erasers.forEach((el) => el.addEventListener('click', handleEraser));
-  backgrounds.forEach((el) => el.addEventListener('click', handleBackground));
+  backgrounds.forEach((el) => {
+    el.addEventListener('click', (e) => {
+      handleBackground(e);
+      handleBackgroundChange();
+    });
+  });
+  overlays.forEach((el) =>
+    el.addEventListener('change', (e) => {
+      handleOverlaySelect(e);
+    })
+  );
 };
 
 const handleButtonClick = (e) => {
@@ -66,6 +77,10 @@ const handleButtonClick = (e) => {
     handleToolButton(e);
   } else if (name === 'frame') {
     handleFrame();
+  } else if (name === 'new') {
+    clearCanvas();
+  } else if (name === 'save') {
+    savePic();
   } else {
     handleGuides(e);
   }
@@ -74,6 +89,7 @@ const handleButtonClick = (e) => {
 const handleToolButton = (e) => {
   const target = e.currentTarget;
   const name = target.name;
+  tool = name;
   const line = document.querySelector('.line-picker-button');
   const eraser = document.querySelector('.eraser-picker-button');
   if (name === 'line') {
@@ -95,6 +111,7 @@ const handleColorChange = (e) => {
   const line = document.querySelector('.line-picker-button');
   const eraser = document.querySelector('.eraser-picker-button');
 
+  tool = 'line';
   if (wellOrButton === 'well') {
     wellOrButton = 'button';
   } else if (wellOrButton === 'button') {
@@ -113,6 +130,7 @@ const handleColorWellChange = (e) => {
   const line = document.querySelector('.line-picker-button');
   const eraser = document.querySelector('.eraser-picker-button');
 
+  tool = 'line';
   if (wellOrButton === 'button') {
     colorButton.classList.remove('active');
   }
@@ -142,6 +160,7 @@ const handleEraser = (e) => {
   const line = document.querySelector('.line-picker-button');
   const eraser = document.querySelector('.eraser-picker-button');
 
+  tool = 'eraser';
   activeEl.classList.remove('active');
   clickedEl.classList.add('active');
   line.classList.remove('active');
@@ -165,15 +184,35 @@ const handleFrame = () => {
   } else {
     button.classList.add('active');
   }
+  document.querySelector('.overlayframe').classList.toggle('hide');
 };
 
 const handleGuides = (e) => {
   const target = e.currentTarget;
   const name = target.name;
+  console.log('name:', name);
   const el = document.querySelector(`.${name}-button`);
   if (el.classList.contains('active')) {
     el.classList.remove('active');
   } else {
     el.classList.add('active');
   }
+  if (name !== 'points') {
+    const cir = document.querySelector(`#guide${name[6]}Circle`);
+    if (cir.classList.value.includes('hide')) {
+      cir.classList.remove('hide');
+    } else {
+      cir.classList.add('hide');
+    }
+  } else if (name === 'points') {
+    const cross = document.querySelectorAll('.cross');
+    cross.forEach((cross) => cross.classList.toggle('hide'));
+  }
+};
+
+const handleOverlaySelect = (e) => {
+  const target = e.currentTarget;
+  const name = target.name;
+  if (name === 'pointsSize') handlePoints(e);
+  else handleCircles(e);
 };
