@@ -50,7 +50,6 @@ const addListeners = () => {
   const lineSize = document.querySelectorAll('.line-size');
   const erasers = document.querySelectorAll('.eraser-button');
   const backgrounds = document.querySelectorAll('.background-color');
-  const frame = document.querySelector('.frame-button');
 
   buttons.forEach((el) => el.addEventListener('click', handleButtonClick));
   colors.forEach((el) => el.addEventListener('click', handleColorChange));
@@ -58,7 +57,6 @@ const addListeners = () => {
   lineSize.forEach((el) => el.addEventListener('click', handleLineWidth));
   erasers.forEach((el) => el.addEventListener('click', handleEraser));
   backgrounds.forEach((el) => el.addEventListener('click', handleBackground));
-  frame.addEventListener('click', handleFrame);
 };
 
 const handleButtonClick = (e) => {
@@ -66,6 +64,10 @@ const handleButtonClick = (e) => {
   const name = target.name;
   if (name === 'line' || name === 'eraser') {
     handleToolButton(e);
+  } else if (name === 'frame') {
+    handleFrame();
+  } else {
+    handleGuides(e);
   }
 };
 
@@ -162,5 +164,16 @@ const handleFrame = () => {
     button.classList.remove('active');
   } else {
     button.classList.add('active');
+  }
+};
+
+const handleGuides = (e) => {
+  const target = e.currentTarget;
+  const name = target.name;
+  const el = document.querySelector(`.${name}-button`);
+  if (el.classList.contains('active')) {
+    el.classList.remove('active');
+  } else {
+    el.classList.add('active');
   }
 };
