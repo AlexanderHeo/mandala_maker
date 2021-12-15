@@ -1,0 +1,73 @@
+.line-xsmall {
+  border-bottom: 1px solid black;
+}
+.line-small {
+  border-bottom: 3px solid black;
+}
+.line-medium {
+  border-bottom: 5px solid black;
+}
+.line-regular {
+  border-bottom: 7px solid black;
+}
+.line-large {
+  border-bottom: 9px solid black;
+}
+.line-xlarge {
+  border-bottom: 11px solid black;
+}
+
+.color.red {
+  background: red;
+}
+.color.orange {
+  background: orange;
+}
+.color.yellow {
+  background: yellow;
+}
+.color.green {
+  background: green;
+}
+.color.blue {
+  background: blue;
+}
+.color.purple {
+  background: purple;
+}
+.color.black {
+  background: black;
+}
+.color.gray {
+  background: gray;
+}
+.color.white {
+  background: white;
+}
+.eraser {
+  background: black;
+}
+.eraser.xsmall {
+  width: 4px;
+  height: 4px;
+}
+.eraser.small {
+  width: 8px;
+  height: 8px;
+}
+.eraser.medium {
+  width: 12px;
+  height: 12px;
+}
+.eraser.regular {
+  width: 16px;
+  height: 16px;
+}
+.eraser.large {
+  width: 20px;
+  height: 20px;
+}
+.eraser.xlarge {
+  width: 24px;
+  height: 24px;
+}
