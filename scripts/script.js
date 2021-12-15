@@ -46,8 +46,11 @@ const addListeners = () => {
 
   const colors = document.querySelectorAll('.line-color');
   const colorWell = document.querySelector('#current-color');
+  const lineSize = document.querySelectorAll('.line-size');
+
   colors.forEach((el) => el.addEventListener('click', handleColorChange));
   colorWell.addEventListener('change', handleColorWellChange);
+  lineSize.forEach((el) => el.addEventListener('click', handleLineWidth));
 };
 
 const handleColorChange = (e) => {
@@ -75,4 +78,17 @@ const handleColorWellChange = (e) => {
     colorButton.classList.remove('active');
   }
   wellOrButton = 'well';
+};
+
+const handleLineWidth = (e) => {
+  const target = e.currentTarget;
+  const size = target.dataset.size;
+  const activeEl = document.querySelector('.line-size.active');
+  const clickedEl = document.querySelector(`.line-size.${size}`);
+  const currentSizeEl = document.querySelector('#current-line');
+
+  activeEl.classList.remove('active');
+  clickedEl.classList.add('active');
+  currentSizeEl.classList.remove(currentSizeEl.classList.item(1));
+  currentSizeEl.classList.add(`line-${size}`);
 };
