@@ -200,3 +200,47 @@ section:not(:first-of-type) {
 .eraser-button.active {
   border: 2px solid black;
 }
+
+/* ********** */
+/* background */
+/* ********** */
+.menu-title.nonpicker {
+  text-align: center;
+  margin-top: -0.5em;
+}
+.background-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.background-container .color-picker,
+.frame-button-container {
+  width: 50%;
+}
+.frame-button-container {
+  text-align: center;
+}
+.frame-button-container button {
+  padding: 0.5em 1em;
+}
+.frame-button-container button:active,
+.frame-button-container button.active {
+  background: darkslategray;
+  color: white;
+  border-radius: 0.3em;
+}
+.background-container .color-picker:hover + .warning-message {
+  display: block;
+}
+.warning-message {
+  display: none;
+  position: absolute;
+  background: red;
+  color: white;
+  bottom: -121px;
+  padding: 1em;
+  text-align: center;
+  z-index: 2;
+  line-height: 1.5;
+}
