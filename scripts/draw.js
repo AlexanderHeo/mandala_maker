@@ -2,7 +2,6 @@
 /* eslint-disable no-unused-vars */
 const handlePointerDown = (e) => {
   recordPointerLocation(e);
-  console.log('tool:', tool);
   if (tool === 'line' || tool === 'eraser') {
     draw = true;
   } else if (tool === 'fill') {

@@ -11,7 +11,6 @@
     <script src="./scripts/circles.js"></script>
     <script src="./scripts/get.js"></script>
     <script src="./scripts/draw.js"></script>
-    <script src="./scripts/fill.js"></script>
     <script src="./scripts/resize.js"></script>
     <script src="./scripts/save.js"></script>
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet" />
@@ -290,16 +289,35 @@
 
       <section class="menu-section" id="buttons">
         <div class="button-section">
-          <button class="button new-button" name="new">
-            <label for="new">New</label>
-          </button>
+          <button class="button new-button" name="new">New</button>
         </div>
         <div class="button-section">
-          <button class="button save-button" name="save">
-            <label for="save">Save</label>
+          <button class="button save-button" name="save">Save</button>
+        </div>
+        <div class="button-section">
+          <button class="about-button about-open" name="open-about">
+            About
           </button>
         </div>
       </section>
+    </div>
+
+    <div class="about hide" id="about">
+      <div class="about-container">
+        <button class="about-button about-close" name="close-about">X</button>
+        <p>
+          This app was created by
+          <a href="https://alexheo.com" target="_blank">Alex Heo</a>, using
+          vanilla JavaScript, custom CSS, and the canvas element.
+        </p>
+        <p>
+          You can see the code by visiting the
+          <a href="https://github.com/alexanderheo" target="_blank"
+            >GitHub repo.</a
+          >
+        </p>
+        <p>&copy 2021 AlexHeo.com</p>
+      </div>
     </div>
 
     <canvas id="canvas" width="700" height="700">

@@ -51,6 +51,7 @@ const addListeners = () => {
   const erasers = document.querySelectorAll('.eraser-button');
   const backgrounds = document.querySelectorAll('.background-color');
   const overlays = document.querySelectorAll('.overlay');
+  const about = document.querySelectorAll('.about-button');
 
   buttons.forEach((el) => el.addEventListener('click', handleButtonClick));
   colors.forEach((el) => el.addEventListener('click', handleColorChange));
@@ -68,6 +69,7 @@ const addListeners = () => {
       handleOverlaySelect(e);
     })
   );
+  about.forEach((el) => el.addEventListener('click', handleAbout));
 };
 
 const handleButtonClick = (e) => {
@@ -81,6 +83,8 @@ const handleButtonClick = (e) => {
     clearCanvas();
   } else if (name === 'save') {
     savePic();
+  } else if (name === 'open-about' || name === 'close-about') {
+    handleAbout();
   } else {
     handleGuides(e);
   }
@@ -190,7 +194,6 @@ const handleFrame = () => {
 const handleGuides = (e) => {
   const target = e.currentTarget;
   const name = target.name;
-  console.log('name:', name);
   const el = document.querySelector(`.${name}-button`);
   if (el.classList.contains('active')) {
     el.classList.remove('active');
@@ -215,4 +218,15 @@ const handleOverlaySelect = (e) => {
   const name = target.name;
   if (name === 'pointsSize') handlePoints(e);
   else handleCircles(e);
+};
+
+const handleAbout = (e) => {
+  const target = e.currentTarget;
+  const name = target.name;
+  const about = document.querySelector('#about');
+  if (name === 'open-about') {
+    about.classList.remove('hide');
+  } else if (name === 'close-about') {
+    about.classList.add('hide');
+  }
 };
